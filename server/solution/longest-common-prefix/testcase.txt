@@ -1,0 +1,16 @@
+null
+""
+[a]
+a
+["",abc,abb]
+""
+[a,b,c]
+""
+[a,a,a]
+a
+[abc,ab,ab]
+ab
+[abcdef,abc,abb]
+ab
+[abcdef,abce,abc123]
+abc

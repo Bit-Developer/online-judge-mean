@@ -1,0 +1,35 @@
+<div class="container">
+  <h2>Profile</h2>
+  <hr />
+  <form class="form-horizontal" [formGroup]="baseForm" (ngSubmit)="onSubmit()">
+    <div class="panel-group">
+      <div class="panel panel-info">
+        <div class="panel-heading">My Profile</div>
+        <div class="panel-body">
+          <div class="form-group" [ngClass]="displayFieldCss('username')">
+            <label class="control-label col-sm-2 required" for="username">User Name:</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" name="username" placeholder="Enter user name" formControlName="username">
+              <app-widget-validation-message [displayError]="isFieldValid('username')" errorMsg="Please enter a user name with at least 3 characters">
+              </app-widget-validation-message>
+            </div>
+          </div>
+          <div class="form-group" [ngClass]="displayFieldCss('email')">
+            <label class="control-label col-sm-2 required" for="email">Email:</label>
+            <div class="col-sm-4">
+              <input type="email" class="form-control" name="email" placeholder="Enter email" formControlName="email">
+              <app-widget-validation-message [displayError]="isFieldValid('email')" errorMsg="Please enter a valid email address">
+              </app-widget-validation-message>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+              <button type="submit" [disabled]="loading" class="btn btn-success">Save</button>
+              <app-widget-loading-image [loading]="isLoading()"></app-widget-loading-image>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

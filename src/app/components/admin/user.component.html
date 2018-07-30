@@ -1,0 +1,44 @@
+<div class="container">
+  <h2 *ngIf="!_id">Create New User</h2>
+  <h2 *ngIf="_id">Edit User</h2>
+  <hr/>
+  <form *ngIf="status != 404" class="form-horizontal" [formGroup]="baseForm" (ngSubmit)="onSubmit()">
+    <div *ngIf="_id" class="form-group">
+      <label class="control-label col-sm-2" for="_id">User ID:</label>
+      <div class="col-sm-4">
+        <input class="form-control" readonly type="text" name="_id" formControlName="_id" />
+      </div>
+    </div>
+    <div class="form-group" [ngClass]="displayFieldCss('username')">
+      <label class="control-label col-sm-2 required" for="username">User Name:</label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" name="username" placeholder="Enter user name" formControlName="username">
+        <app-widget-validation-message [displayError]="isFieldValid('username')" errorMsg="Please enter a user name with at least 3 characters">
+        </app-widget-validation-message>
+      </div>
+    </div>
+    <div *ngIf="!_id" class="form-group" [ngClass]="displayFieldCss('password')">
+      <label class="control-label col-sm-2 required" for="password">Password:</label>
+      <div class="col-sm-4">
+        <input type="password" class="form-control" name="password" placeholder="Enter password" formControlName="password">
+        <app-widget-validation-message [displayError]="isFieldValid('password')" errorMsg="Please enter a password with at least 6 characters">
+        </app-widget-validation-message>
+      </div>
+    </div>
+    <div class="form-group" [ngClass]="displayFieldCss('email')">
+      <label class="control-label col-sm-2 required" for="email">Email:</label>
+      <div class="col-sm-4">
+        <input type="email" class="form-control" name="email" placeholder="Enter email" formControlName="email">
+        <app-widget-validation-message [displayError]="isFieldValid('email')" errorMsg="Please enter a valid email address">
+        </app-widget-validation-message>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <input type="submit" [disabled]="loading" class="btn btn-success" value="Save">
+        <app-widget-loading-image [loading]="isLoading()"></app-widget-loading-image>
+        <button type="button" [disabled]="loading" class="btn btn-info" (click)="back('/admin/users')">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,7 @@
+span {
+  display: inline-block;
+  width: 25px;
+  line-height: 25px;
+  text-align: center;
+  cursor: pointer;
+}

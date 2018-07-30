@@ -1,0 +1,36 @@
+<div class="container">
+  <h2>Change Password</h2>
+  <hr />
+  <form class="form-horizontal" [formGroup]="baseForm" (ngSubmit)="onSubmit()">
+    <div class="form-group" [ngClass]="displayFieldCss('password')">
+      <label class="control-label col-sm-2 required" for="password">Old Password:</label>
+      <div class="col-sm-4">
+        <input type="password" class="form-control" name="password" placeholder="Enter old password" formControlName="password">
+        <app-widget-validation-message [displayError]="isFieldValid('password')" errorMsg="Please enter your old password">
+        </app-widget-validation-message>
+      </div>
+    </div>
+    <div class="form-group" [ngClass]="displayFieldCss('newpwd')">
+      <label class="control-label col-sm-2 required" for="newpwd">New Password:</label>
+      <div class="col-sm-4">
+        <input type="password" class="form-control" name="newpwd" placeholder="Enter new password" formControlName="newpwd">
+        <app-widget-validation-message [displayError]="isFieldValid('newpwd')" errorMsg="Please enter the new password with at least 6 characters">
+        </app-widget-validation-message>
+      </div>
+    </div>
+    <div class="form-group" [ngClass]="displayFieldCss('confirmpwd')">
+      <label class="control-label col-sm-2 required" for="confirmpwd">Confirm Password:</label>
+      <div class="col-sm-4">
+        <input type="password" class="form-control" name="confirmpwd" placeholder="Enter confirm password" formControlName="confirmpwd">
+        <app-widget-validation-message [displayError]="isFieldValid('confirmpwd')" errorMsg="Confirm password is not same with the new password">
+        </app-widget-validation-message>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-offset-2 col-md-10">
+        <button type="submit" [disabled]="loading" class="btn btn-success">Change password</button>
+        <app-widget-loading-image [loading]="isLoading()"></app-widget-loading-image>
+      </div>
+    </div>
+  </form>
+</div>

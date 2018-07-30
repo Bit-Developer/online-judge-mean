@@ -1,0 +1,15 @@
+<div class="container">
+  <h2></h2>
+  <alert *ngFor="let message of messages" [type]="message && message.type === 'error' ? 'danger' : 'success'">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong *ngIf="message.type === 'success'">Success!</strong>
+    <strong *ngIf="message.type === 'error'">Error!</strong> {{message.text}}
+  </alert>
+
+  <!--
+  <div *ngFor="let message of messages" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong *ngIf="message.type === 'success'">Success!</strong>
+    <strong *ngIf="message.type === 'error'">Error!</strong>{{message.text}}
+  </div>-->
+</div>

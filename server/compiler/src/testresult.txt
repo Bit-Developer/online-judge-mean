@@ -1,0 +1,1 @@
+[Fail]Failed at: Input: [1, 0, -1], -1; Your answer:[1, 103]; Expected answer: [1, 2]

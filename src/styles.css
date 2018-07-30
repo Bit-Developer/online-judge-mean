@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+  font-size: 16px;
+}
+
+/* progress bar at top */
+.bar {
+  margin-top: 50px;
+}
+.spinner {
+  margin-top: 50px;
+}
+
+div .bar-shadow[_ngcontent-c1] {
+  all: initial;
+}
+
+/* tab */
+.tab {
+  margin-top: 30px;
+}
+.tab-item {
+  font-size: 16px;
+}
+.icon-btn > i {
+  padding-right: 8px;
+}
+.hint-link:hover,
+.hint-link:visited,
+.hint-link:link,
+.hint-link:active {
+  text-decoration: none;
+}
+
+/* label color for validation error*/
+.control-label.required:after {
+  color: #d00;
+  content: "*";
+  position: absolute;
+  margin-left: 5px;
+  top: 7px;
+}
+
+/* code editor*/
+.editor-container {
+  height: calc(100% - 35px);
+}
+._nghost-c4 {
+  height: 600px;
+}

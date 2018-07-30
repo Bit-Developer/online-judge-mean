@@ -1,0 +1,2 @@
+<a *ngIf="loading" [style]="getStyle()">{{title}}</a>
+<a *ngIf="!loading" [style]="getStyle()" [routerLink]="[getLink()]">{{title}}</a>

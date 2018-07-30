@@ -1,0 +1,110 @@
+<div class="container">
+  <h3>{{sequence}}. {{title}}</h3>
+  <ul class="nav nav-tabs tab">
+    <li [ngClass]="{'active': tab==='description'}"><a (click)="changeTab('description')" class="tab-item icon-btn"><i class="fa fa-list-alt"></i>Descripton</a></li>
+    <li [ngClass]="{'active': tab==='hints'}"><a (click)="changeTab('hints')" class="tab-item icon-btn"><i class="fa fa-lightbulb-o"></i>Hints</a></li>
+    <li [ngClass]="{'active': tab==='submissions'}"><a (click)="changeTab('submissions')" class="tab-item icon-btn"><i class="fa fa-file-code-o"></i>Submissions</a></li>
+    <li [ngClass]="{'active': tab==='solution'}"><a (click)="changeTab('solution')" class="tab-item icon-btn"><i class="fa fa-flask"></i>Solution</a></li>
+  </ul>
+  <br>
+  <div *ngIf="tab==='description'" innerHTML={{description}}></div>
+  <div *ngIf="tab==='hints'" class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h5 class="panel-title">
+          <a data-toggle="collapse" href="#collapse1" class="icon-btn hint-link">
+            <i class="fa fa-lightbulb-o"></i>Show Hint <i class="fa fa-caret-down collapse" data-toggle="collapse"></i>
+          </a>
+        </h5>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse">
+        <div class="panel-body">{{hints}}</div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="tab==='submissions'">
+    <div *ngIf="submissions.length">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th style="display:none;"></th>
+            <th>Time Submitted</th>
+            <th>Status</th>
+            <th>Runtime</th>
+            <th>Language</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let submission of submissions">
+            <td style="display:none;">{{submission._id}}</td>
+            <td>{{submission.timesubmitted | date : "yyyy/MM/dd hh:mm:ss" }}</td>
+            <td>
+              <app-widget-status-link [testResult]="[submission.status]"></app-widget-status-link>
+            </td>
+            <td><span *ngIf="submission.status=='pass'">{{submission.runtime}} ms</span><span *ngIf="submission.status=='fail'">N/A</span></td>
+            <td>{{submission.language}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="!submissions.length">
+      <div style="padding: 50px; text-align: center;">
+        <p>
+          <font size="5" color="#8f9193">You have no submission yet.</font>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="tab==='solution'">
+    <app-ngx-editor [config]="editorConfig" [(ngModel)]="solution"></app-ngx-editor>
+  </div>
+  <hr />
+  <div>
+    <form class="form-horizontal" [formGroup]="baseForm">
+      <div class="form-group">
+        <div class="col-sm-2">
+          <!--<app-widget-language-select [selectedValue]="selectedValue" name="language" formControlName="language" ngDefaultControl></app-widget-language-select>-->
+          <select [(ngModel)]="selectedLang" (change)="onChange($event.target.value)" class="form-control" formControlName="language">
+              <option *ngFor="let option of options" [value]="option.value">{{option.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div *ngIf="selectedLang=='java'" class="form-group">
+        <div class="col-sm-12">
+          <ngx-monaco-editor class="solution-code-editor" [options]="editorOptions1" [(ngModel)]="code1" formControlName="solution1"></ngx-monaco-editor>
+          <app-widget-validation-message [displayError]="isFieldValid('solution1')" errorMsg="Please enter solution">
+          </app-widget-validation-message>
+        </div>
+      </div>
+      <div *ngIf="selectedLang=='javascript'" class="form-group">
+        <div class="col-sm-12">
+          <ngx-monaco-editor [options]="editorOptions2" [(ngModel)]="code2" formControlName="solution2"></ngx-monaco-editor>
+          <app-widget-validation-message [displayError]="isFieldValid('solution2')" errorMsg="Please enter solution">
+          </app-widget-validation-message>
+        </div>
+      </div>
+      <div *ngIf="selectedLang=='python'" class="form-group">
+        <div class="col-sm-12">
+          <ngx-monaco-editor [options]="editorOptions3" [(ngModel)]="code3" formControlName="solution3"></ngx-monaco-editor>
+          <app-widget-validation-message [displayError]="isFieldValid('solution3')" errorMsg="Please enter solution">
+          </app-widget-validation-message>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-10">
+          <input *ngIf="username" type="submit" [disabled]="loading || loading2" class="btn btn-success" (click)="onSave()" value="Save">
+          <app-widget-loading-image [loading]="isLoading()"></app-widget-loading-image>
+          <button type="button" [disabled]="loading || loading2" class="btn btn-info" (click)="back('/questions')">Back</button>
+        </div>
+        <div class="col-sm-2">
+          <button *ngIf="username" type="submit" [disabled]="loading || loading2" class="btn btn-primary" (click)="onSubmitSolution()">Submit Solution</button>
+          <app-widget-loading-image [loading]="isLoading2()"></app-widget-loading-image>
+          <app-widget-status-image [testResult]="testResult"></app-widget-status-image>
+        </div>
+      </div>
+      <hr />
+      <div class="form-group">
+        <app-widget-result-panel [(testResult)]="testResult" [resultMessage]="resultMessage"></app-widget-result-panel>
+      </div>
+    </form>
+  </div>

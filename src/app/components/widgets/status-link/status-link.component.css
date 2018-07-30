@@ -1,0 +1,8 @@
+.error {
+  color: #e01818;
+  font-weight: bold;
+}
+.ok {
+  color: #057f05;
+  font-weight: bold;
+}

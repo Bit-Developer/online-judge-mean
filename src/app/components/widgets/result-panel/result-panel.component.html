@@ -1,0 +1,35 @@
+<div class="col-lg-12">
+    <div *ngIf="testResult===10" class="panel panel-success">
+        <div class="panel-heading"><button type="button" class="close" aria-label="Close" (click)="close()"><span aria-hidden="true">×</span></button>
+            <h5>Run Code Result: Success!</h5>
+        </div>
+        <div class="panel-body">
+            {{ resultMessage }}
+        </div>
+    </div>
+    <div *ngIf="testResult===20" class="panel panel-danger">
+        <div class="panel-heading"><button type="button" class="close" aria-label="Close" (click)="close()"><span aria-hidden="true">×</span></button>
+            <h5>Run Code Result: Failure!</h5>
+        </div>
+        <div class="panel-body">
+            <div class="col-lg-12">
+                <h5>Input</h5>
+                <pre>{{getInput()}}</pre>
+            </div>
+            <div class="col-lg-12 hidden">
+                <h5>Your stdout</h5>
+                <pre></pre>
+            </div>
+            <div>
+                <div class="col-lg-6">
+                    <h5>Your answer</h5>
+                    <pre><span>{{getYourAnswer()}}</span></pre>
+                </div>
+                <div class="col-lg-6">
+                    <h5>Expected answer</h5>
+                    <pre><span>{{getExpectedAnswer()}}</span></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

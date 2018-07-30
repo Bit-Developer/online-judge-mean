@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>Questions</h2>
+  <hr/>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th style="display:none;"></th>
+        <th>#</th>
+        <th>Title</th>
+        <th>Difficulty</th>
+        <th>Frequency</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let question of questions">
+        <td style="display:none;">{{question._id}}</td>
+        <td>{{question.sequence}}</td>
+        <td><a type="button" [routerLink]="['/question/', question.uniquename]">{{question.title}}</a></td>
+        <td>
+          <app-widget-contextual-label [difficulty]="[question.difficulty]"></app-widget-contextual-label>
+        </td>
+        <td>
+          <app-widget-frequency-bar [frequency]="[question.frequency]"></app-widget-frequency-bar>
+        </td>
+        <td>
+          <app-widget-rating-bar [rating]="[question.rating]"></app-widget-rating-bar>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

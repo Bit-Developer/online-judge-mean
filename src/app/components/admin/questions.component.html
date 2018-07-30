@@ -1,0 +1,56 @@
+<div class="container">
+  <h2>Questions</h2>
+  <button type="button" class="btn btn-info" routerLink="/admin/question">Create Question</button>
+  <button type="button" class="btn btn-info" routerLink="../../editor">Code Editor</button>
+  <button type="button" class="btn btn-info" routerLink="../../wysiwyg">Rich Text Editor</button>
+  <hr/>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Question ID</th>
+        <th>Sequence</th>
+        <th>Title</th>
+        <th>Difficulty</th>
+        <th>Frequency</th>
+        <th>Rating</th>
+        <th>Operations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let question of questions">
+        <td>{{question._id}}</td>
+        <td>{{question.sequence}}</td>
+        <td>{{question.title}}</td>
+        <td>
+          <app-widget-contextual-label [difficulty]="[question.difficulty] + ''"></app-widget-contextual-label>
+        </td>
+        <td>
+          <app-widget-frequency-bar [frequency]="[question.frequency]"></app-widget-frequency-bar>
+        </td>
+        <td>
+          <app-widget-rating-bar [rating]="[question.rating]"></app-widget-rating-bar>
+        </td>
+        <td>
+          <button type="button" class="btn btn-primary" [routerLink]="['/admin/question', question._id ]">Edit</button>
+          <button type="button" class="btn btn-danger" (click)="openModal(confirmDlg, question._id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ng-template #confirmDlg>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Delete Question</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="decline()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+    </div>
+    <div class="modal-body">
+      <p>Are you sure to delete this question?</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" [disabled]="loading" class="btn btn-default" (click)="confirm()">Yes</button>
+      <app-widget-loading-image [loading]="loading"></app-widget-loading-image>
+      <button type="button" class="btn btn-primary" (click)="decline()">No</button>
+    </div>
+  </ng-template>
+</div>

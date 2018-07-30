@@ -1,0 +1,41 @@
+<div class="container">
+  <h2>Login</h2>
+  <h4>Use a local account to login</h4>
+  <hr />
+  <form class="form-horizontal" [formGroup]="baseForm" (ngSubmit)="onSubmit()">
+    <div class="form-group" [ngClass]="displayFieldCss('username')">
+      <label class="control-label col-sm-2 required" for="username">User Name:</label>
+      <div class="col-sm-4">
+        <input #username type="text" class="form-control" name="username" placeholder="Enter user name" formControlName="username">
+        <app-widget-validation-message [displayError]="isFieldValid('username')" errorMsg="Please enter user name">
+        </app-widget-validation-message>
+      </div>
+    </div>
+    <div class="form-group" [ngClass]="displayFieldCss('password')">
+      <label class="control-label col-sm-2 required" for="password">Password:</label>
+      <div class="col-sm-4">
+        <input type="password" class="form-control" name="password" placeholder="Enter password" formControlName="password">
+        <app-widget-validation-message [displayError]="isFieldValid('password')" errorMsg="Please enter password">
+        </app-widget-validation-message>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-offset-2 col-md-10">
+        <div class="checkbox">
+          <label><input type="checkbox" name="remember-me" formControlName="remember">Remember me?</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-offset-2 col-md-10">
+        <button type="submit" [disabled]="loading" class="btn btn-success">Login</button>
+        <app-widget-loading-image [loading]="isLoading()"></app-widget-loading-image>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-offset-2 col-md-10">
+        <app-widget-loading-link [loading]="loading" link="/signup" title="Register as a new user"></app-widget-loading-link>
+      </div>
+    </div>
+  </form>
+</div>
