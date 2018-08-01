@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { Router } from "@angular/router";
+import { environment } from "../../environments/environment";
 
 import {
   User,
@@ -16,9 +17,7 @@ import { AuthUtil } from "../utils";
 @Injectable()
 export class AuthenticationService {
   //URL for CRUD operations
-  baseUrl = "http://localhost:5000/";
-  //signupUrl = this.baseUrl + "api/authenticate/signup";
-  //loginUrl = this.baseUrl + "api/authenticate/login";
+  baseUrl = environment.apiUrl;
   signupUrl = this.baseUrl + "api/authentication/signup";
   loginUrl = this.baseUrl + "api/authentication/login";
 

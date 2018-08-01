@@ -148,7 +148,7 @@ export class DatabaseComponent extends RootComponent {
   }
 
   // upload dialog
-  openModal(template: TemplateRef<any>, id: string) {
+  openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, { class: "modal-md" });
   }
   choose() {

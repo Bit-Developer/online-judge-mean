@@ -9,7 +9,7 @@ import { AuthUtil } from "../../utils";
   templateUrl: "./header.component.html"
 })
 export class HeaderComponent implements OnInit {
-  constructor(private auth: AuthenticationService, private router: Router) {}
+  constructor(public auth: AuthenticationService, public router: Router) {}
 
   ngOnInit() {}
 }

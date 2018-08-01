@@ -9,12 +9,13 @@ import {
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import "rxjs/add/operator/map";
+import { environment } from "../../environments/environment";
 
 import { QuestionExt, Submission } from "./../models";
 
 @Injectable()
 export class SubmissionService {
-  baseUrl = "http://localhost:5000/";
+  baseUrl = environment.apiUrl;
   apiUrl = this.baseUrl + "api/submission";
 
   //Create constructor to get Http instance

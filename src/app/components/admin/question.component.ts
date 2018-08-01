@@ -55,9 +55,8 @@ export class QuestionComponent extends BaseComponent {
   _id;
 
   public selectedValue;
-  /*   public htmlContent;
+  public htmlContent; //todo , can be deleted
   //public text;
-*/
 
   editorOptions1 = {
     theme: "vs",

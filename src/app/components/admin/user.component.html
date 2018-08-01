@@ -2,7 +2,7 @@
   <h2 *ngIf="!_id">Create New User</h2>
   <h2 *ngIf="_id">Edit User</h2>
   <hr/>
-  <form *ngIf="status != 404" class="form-horizontal" [formGroup]="baseForm" (ngSubmit)="onSubmit()">
+  <form class="form-horizontal" [formGroup]="baseForm" (ngSubmit)="onSubmit()">
     <div *ngIf="_id" class="form-group">
       <label class="control-label col-sm-2" for="_id">User ID:</label>
       <div class="col-sm-4">

@@ -9,13 +9,14 @@ import {
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import "rxjs/add/operator/map";
+import { environment } from "../../environments/environment";
 
 import { User } from "./../models";
 
 @Injectable()
 export class UserService {
   //URL for CRUD operations
-  baseUrl = "http://localhost:5000/";
+  baseUrl = environment.apiUrl;
   apiUrl = this.baseUrl + "api/admin/user";
 
   //Create constructor to get Http instance

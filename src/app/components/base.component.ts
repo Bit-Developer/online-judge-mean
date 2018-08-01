@@ -11,13 +11,13 @@ import {
 
 @Injectable()
 export abstract class BaseComponent implements OnInit {
-  protected logging = true;
-  protected baseForm: FormGroup;
-  protected loading = false;
-  protected loading2 = false;
-  protected submitted = false;
+  public logging = true;
+  public baseForm: FormGroup;
+  public loading = false;
+  public loading2 = false;
+  public submitted = false;
 
-  protected initialValidation = false;
+  public initialValidation = false;
 
   constructor(
     public formBuilder: FormBuilder,

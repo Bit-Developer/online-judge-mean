@@ -1,8 +1,8 @@
 # Online Judge
-A web application for online judge(Programming Questions), built with MEAN stack(MongoDB, Express, Angular and Node.js).
+A web application for online judge(solve programming questions), built with MEAN stack(MongoDB, Express, Angular and Node.js).
 
 # Function
-Write the solution for programming questions, submit to see the result. Currently, three languages are supported, java, javascript and python.
+Write solution for programming questions, submit to see the result. Currently, three languages are supported, java, javascript and python.
 
 <kbd>![image](/public/onlinejudge.png)</kbd>
 
