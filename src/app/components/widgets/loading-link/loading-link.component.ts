@@ -20,8 +20,8 @@ export class LoadingLinkComponent implements OnInit {
     if (this.loading) {
       style = `pointer-events: none; display: inline-block;`;
     }
-    console.log("LoadingLinkComponent");
-    console.log(this.inline);
+    //console.log("LoadingLinkComponent");
+    //console.log(this.inline);
     if (this.inline) {
       style += `margin-left: 8px`;
     }
