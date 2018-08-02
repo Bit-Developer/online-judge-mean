@@ -1,22 +1,28 @@
 # Online Judge
-A web application for online judge(solve programming questions), built with MEAN stack(MongoDB, Express, Angular and Node.js).
+A web application for online judge(solve algorithm questions), built with MEAN stack(MongoDB, Express, Angular and Node.js).
 
 # Function
-Write solution for programming questions, submit to see the result. Currently, three languages are supported, java, javascript and python.
+Solve algorithm questions, submit the solution to see if it passes all of test cases. Currently, three languages are supported, java, javascript and python.
 
-<kbd>![image](/public/onlinejudge.png)</kbd>
+<kbd>![image](/public/questions.png)</kbd>
+
+# Demo
+Live Demo on [Heroku](https://online-judge-angular.herokuapp.com/) and on [Netlify](https://online-judge.netlify.com/).
 
 # Setup Locally
 ```bash
 git clone https://github.com/jojozhuang/online-judge-mean.git
 cd online-judge-mean
 npm install
-npm start
+npm run dev
 ```
 Access http://localhost:12080/ in web browser, enjoy!
 
+# Deployment
+Follow the tutorial [Deploying Full Stack Angular App to Heroku](http://jojozhuang.github.io/tutorial/angular/deploying-full-stack-angular-app-to-heroku/) to deploy this app to Heroku.
+
 # Portfolio
-Read portfolio [Game Store(Angular)](http://jojozhuang.github.io/portfolio/game-store-angular/) to learn the main functions of this Angular app.
+Read portfolio [Online Judge(Angular)](http://jojozhuang.github.io/portfolio/online-judge-angular/) to learn the main functions of this MEAN stack app.
 
 # Tutorial
-Read tutorial [Building Web Application with Angular](http://jojozhuang.github.io/tutorial/angular/building-web-application-with-angular/) to learn how this Angular app is built.
+Read tutorial [Building Online Judge Application With Angular and ExpressJS](http://jojozhuang.github.io/tutorial/angular/building-online-judge-application-with-angular-and-expressjs/) to learn how this MEAN stack app is built.
