@@ -3,16 +3,22 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "node ./server/server",
+    "start": "NODE_ENV=production node ./server/server",
     "ng": "ng",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "client": "ng serve",
+    "client-prod": "ng serve --prod",
     "client-aot": "ng serve -aot",
-    "server": "node ./server/server",
-    "dev": "concurrently \"npm run client\" \"npm run server \""
+    "server-local": "NODE_ENV=local node ./server/server",
+    "server-dev": "NODE_ENV=dev node ./server/server",
+    "server-stage": "NODE_ENV=stage node ./server/server",
+    "local": "concurrently \"npm run client\" \"npm run server-local \"",
+    "dev": "concurrently \"npm run client\" \"npm run server-dev \"",
+    "stage": "concurrently \"npm run client\" \"npm run server-stage \"",
+    "prod": "npm run client-prod"
   },
   "private": true,
   "dependencies": {

@@ -12,7 +12,9 @@ var config = require("./config/server-config");
 var FileApi = require("./api/FileApi");
 
 // Create working directory
-const tempDir = path.resolve(__dirname, config.temp_directory);
+console.log(config);
+const { app: { port, cors_client_url, temp_directory } } = config;
+const tempDir = path.resolve(__dirname, temp_directory);
 FileApi.creatDirectory(tempDir, (err, message) => {
   if (err) {
     console.log(err);
@@ -24,8 +26,6 @@ FileApi.creatDirectory(tempDir, (err, message) => {
 require("./models/mongodb");
 // Bring in the Passport config after model is defined
 require("./config/passport-config");
-
-var port = process.env.PORT || 5000;
 
 var app = express();
 app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
@@ -41,7 +41,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //app.use(cors());
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:12080");
+  res.header(
+    "Access-Control-Allow-Origin",
+    process.env.CLIENT_WEBSITE || cors_client_url
+  );
   res.header(
     "Access-Control-Allow-Methods",
     "GET,HEAD,OPTIONS,POST,PUT,PATCH,DELETE"

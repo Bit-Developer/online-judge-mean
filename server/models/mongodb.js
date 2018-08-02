@@ -2,11 +2,13 @@ var mongoose = require("mongoose");
 const config = require("../config/server-config");
 
 var gracefulShutdown;
-var dbURI = encodeURI(config.mongodb_url); // mongodb url
+// mongodb url
+const { db: { host, port, name } } = config;
+var dbURI = `mongodb://${host}:${port}/${name}`;
 if (process.env.NODE_ENV === "production") {
   dbURI = process.env.MONGOLAB_URI;
 }
-
+console.log("dbURI:", dbURI);
 mongoose.connect(dbURI);
 
 // Get collection names

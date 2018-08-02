@@ -6,8 +6,9 @@ import {
   HttpInterceptor,
   HTTP_INTERCEPTORS
 } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/timeout";
+import { environment } from "../../environments/environment";
 
 @Injectable()
 export class TimeoutHttpInterceptor implements HttpInterceptor {
@@ -16,8 +17,11 @@ export class TimeoutHttpInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     // Set timeout for each request
-    const REQUEST_TIMEOUT = 10000; // 10 seconds
-    return next.handle(request).timeout(REQUEST_TIMEOUT);
+    if (environment.http_timeout == 0) {
+      return next.handle(request); // no timeout
+    } else {
+      return next.handle(request).timeout(environment.http_timeout * 1000);
+    }
   }
 }
 
