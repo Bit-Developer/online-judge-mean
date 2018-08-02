@@ -41,10 +41,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //app.use(cors());
 
 app.use(function(req, res, next) {
-  res.header(
-    "Access-Control-Allow-Origin",
-    process.env.CLIENT_WEBSITE || cors_client_url
-  );
+  res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Methods",
     "GET,HEAD,OPTIONS,POST,PUT,PATCH,DELETE"
