@@ -43,6 +43,27 @@ exports.question_findByKeys = function(req, res, next) {
       );
       res.status(422).json({ errors: [error] });
     }
+
+    //console.log(submissions);
+    var retq = {
+      _id: question._id,
+      sequence: question.sequence,
+      title: question.title,
+      uniquename: question.uniquename,
+      description: question.description,
+      mainfunction: question.mainfunction,
+      jsmain: question.jsmain,
+      pythonmain: question.pythonmain,
+      solution: question.solution,
+      difficulty: question.difficulty,
+      frequency: question.frequency,
+      rating: question.rating,
+      hints: question.hints,
+      id1: "",
+      id2: "",
+      id3: ""
+    };
+
     // get submissions if exist
     if (keys[1]) {
       console.log(keys[1]);
@@ -80,26 +101,6 @@ exports.question_findByKeys = function(req, res, next) {
             return next(err);
           }
           if (submissions) {
-            //console.log(submissions);
-            var retq = {
-              _id: question._id,
-              sequence: question.sequence,
-              title: question.title,
-              uniquename: question.uniquename,
-              description: question.description,
-              mainfunction: question.mainfunction,
-              jsmain: question.jsmain,
-              pythonmain: question.pythonmain,
-              solution: question.solution,
-              difficulty: question.difficulty,
-              frequency: question.frequency,
-              rating: question.rating,
-              hints: question.hints,
-              id1: "",
-              id2: "",
-              id3: ""
-            };
-
             // replace the solution in question with user's submission
             for (var i = 0; i < submissions.length; i++) {
               const submission = submissions[i];
@@ -126,6 +127,9 @@ exports.question_findByKeys = function(req, res, next) {
           res.status(200).send(retq);
         }
       );
+    } else {
+      // user not logged in yet, just return question
+      res.status(200).send(retq);
     }
   });
 };
