@@ -128,7 +128,7 @@ exports.question_findByKeys = function(req, res, next) {
         }
       );
     } else {
-      // user not logged in yet, just return question
+      // user has not logged in yet, just return question
       res.status(200).send(retq);
     }
   });
