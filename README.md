@@ -7,7 +7,7 @@ Solve algorithm questions, submit the solution to see if it passes all of test c
 <kbd>![image](/public/questions.png)</kbd>
 
 # Demo
-Live Demo on [Heroku](https://online-judge-angular.herokuapp.com/) and on [Netlify](https://online-judge.netlify.com/).
+Live Demo on [Heroku](https://online-judge-mean.herokuapp.com/) and on [Netlify](https://online-judge.netlify.com/).
 
 # Setup Locally
 ```bash
