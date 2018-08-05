@@ -7,7 +7,7 @@ Solve algorithm questions, submit the solution to see if it passes all of test c
 <kbd>![image](/public/questions.png)</kbd>
 
 # Demo
-Two available demos:
+Three available demos:
 * `Live Demo on Heroku:` <a href="https://online-judge-mean.herokuapp.com/" target="\_blank">https://online-judge-mean.herokuapp.com/</a>
 * `Live Demo on Netlify:` <a href="https://online-judge.netlify.com/" target="\_blank">https://online-judge.netlify.com/</a>
 * `Live Demo on Azure:` <a href="https://online-judge.azurewebsites.net/" target="\_blank">https://online-judge.azurewebsites.net/</a>
