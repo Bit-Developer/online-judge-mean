@@ -5,6 +5,7 @@ export * from "./widgets/validation-message/validation-message.component";
 export * from "./widgets/contextual-label/contextual-label.component";
 export * from "./widgets/frequency-bar/frequency-bar.component";
 export * from "./widgets/difficulty-select/difficulty-select.component";
+export * from "./widgets/role-select/role-select.component";
 export * from "./widgets/wysiwyg-editor/wysiwyg-editor.component";
 export * from "./widgets/code-editor/code-editor.component";
 export * from "./widgets/rating-input/rating-input.component";

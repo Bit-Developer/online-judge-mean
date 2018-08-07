@@ -9,10 +9,12 @@ import { BaseComponent } from "../base.component";
 })
 export class UserComponent extends BaseComponent {
   _id;
+  public selectedRole;
   credentials: TokenPayload = {
     username: "",
     password: "",
     email: "",
+    role: "",
     _id: ""
   };
 
@@ -20,17 +22,20 @@ export class UserComponent extends BaseComponent {
     this._id = this.route.snapshot.paramMap.get("_id");
     if (this._id == null || this._id == "") {
       this.initialValidation = true;
+      this.selectedRole = "Regular";
       // create
       this.baseForm = this.formBuilder.group({
         username: [null, [Validators.required, Validators.minLength(3)]],
         password: [null, [Validators.required, Validators.minLength(6)]],
-        email: [null, [Validators.required, Validators.email]]
+        email: [null, [Validators.required, Validators.email]],
+        role: []
       });
     } else {
       this.baseForm = this.formBuilder.group({
         _id: [],
         username: [],
-        email: []
+        email: [],
+        role: []
       });
 
       this.userService.getUserById(this._id).subscribe(
@@ -41,14 +46,17 @@ export class UserComponent extends BaseComponent {
               user.username,
               [Validators.required, Validators.minLength(3)]
             ],
-            email: [user.email, [Validators.required, Validators.email]]
+            email: [user.email, [Validators.required, Validators.email]],
+            role: [user.role, []]
           });
-          /*
+
           this.baseForm.setValue({
             _id: user._id,
             username: user.username,
-            email: user.email
-          });*/
+            email: user.email,
+            role: user.role
+          });
+          this.selectedRole = user.role;
         },
         error => {
           this.printError(error);
@@ -71,6 +79,7 @@ export class UserComponent extends BaseComponent {
       this.credentials.username = user.username;
       this.credentials.password = user.password;
       this.credentials.email = user.email;
+      this.credentials.role = this.selectedRole;
       this.authService.signup(this.credentials, false).subscribe(
         () => {
           this.handleSuccess(
@@ -88,6 +97,7 @@ export class UserComponent extends BaseComponent {
       this.credentials._id = user._id;
       this.credentials.username = user.username;
       this.credentials.email = user.email;
+      this.credentials.role = user.role;
       this.authService.update(this.credentials, false).subscribe(
         () => {
           this.handleSuccess(

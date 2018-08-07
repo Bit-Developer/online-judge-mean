@@ -5,6 +5,7 @@ var jwt = require("jsonwebtoken");
 var UserSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true, max: 20 },
   email: { type: String, required: true, max: 100 },
+  role: { type: String, required: true, max: 20 },
   hash: String,
   salt: String,
   timecreated: { type: Date, default: Date.now }
@@ -22,6 +23,11 @@ UserSchema.methods.validPassword = function(password) {
     .pbkdf2Sync(password, this.salt, 1000, 64, "sha512")
     .toString("hex");
   return this.hash === hash;
+};
+
+UserSchema.methods.validRole = function() {
+  console.log("role:", this.role);
+  return this.role === "Admin";
 };
 
 UserSchema.methods.generateJwt = function() {

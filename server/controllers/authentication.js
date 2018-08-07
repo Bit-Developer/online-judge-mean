@@ -24,7 +24,8 @@ module.exports.signup = function(req, res) {
 
   var newuser = new User({
     username: req.body.username,
-    email: req.body.email
+    email: req.body.email,
+    role: req.body.role
   });
 
   User.findOne({ username: newuser.username }, function(err, user) {
@@ -170,7 +171,8 @@ module.exports.update = function(req, res) {
   var upduser = new User({
     _id: req.body._id,
     username: req.body.username,
-    email: req.body.email
+    email: req.body.email,
+    role: req.body.role
   });
 
   User.findById(upduser._id, function(err, user) {
@@ -218,6 +220,7 @@ module.exports.update = function(req, res) {
               //update username and email
               user.username = upduser.username;
               user.email = upduser.email;
+              user.role = upduser.role;
               //console.log(user);
               user.save(function(err) {
                 var token;

@@ -6,7 +6,7 @@ const env = process.env.NODE_ENV; // 'local', 'dev', 'stage'
 const local = {
   app: {
     port: parseInt(process.env.PORT) || 5000,
-    request_delay: 1, // unit: seconds, 0: no delay
+    request_delay: 0, // unit: seconds, 0: no delay
     temp_directory: "compiler/temp/uploads",
     cors_client_url: "http://localhost:12080"
   },
