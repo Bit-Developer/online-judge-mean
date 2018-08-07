@@ -78,14 +78,14 @@
       </div>
       <div *ngIf="selectedLang=='javascript'" class="form-group">
         <div class="col-sm-12">
-          <ngx-monaco-editor [options]="editorOptions2" [(ngModel)]="code2" formControlName="solution2"></ngx-monaco-editor>
+          <ngx-monaco-editor class="solution-code-editor" [options]="editorOptions2" [(ngModel)]="code2" formControlName="solution2"></ngx-monaco-editor>
           <app-widget-validation-message [displayError]="isFieldValid('solution2')" errorMsg="Please enter solution">
           </app-widget-validation-message>
         </div>
       </div>
       <div *ngIf="selectedLang=='python'" class="form-group">
         <div class="col-sm-12">
-          <ngx-monaco-editor [options]="editorOptions3" [(ngModel)]="code3" formControlName="solution3"></ngx-monaco-editor>
+          <ngx-monaco-editor class="solution-code-editor" [options]="editorOptions3" [(ngModel)]="code3" formControlName="solution3"></ngx-monaco-editor>
           <app-widget-validation-message [displayError]="isFieldValid('solution3')" errorMsg="Please enter solution">
           </app-widget-validation-message>
         </div>

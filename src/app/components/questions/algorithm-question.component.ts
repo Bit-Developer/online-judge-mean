@@ -77,9 +77,9 @@ export class AlgorithmQuestionComponent extends BaseComponent {
     }
   ];
 
-  editorOptions1 = { theme: "vs-dark", language: "java" };
-  editorOptions2 = { theme: "vs-dark", language: "javascript" };
-  editorOptions3 = { theme: "vs-dark", language: "python" };
+  editorOptions1 = { theme: "vs", language: "java" };
+  editorOptions2 = { theme: "vs", language: "javascript" };
+  editorOptions3 = { theme: "vs", language: "python" };
   code1: string = "";
   code2: string = "";
   code3: string = "";

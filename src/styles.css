@@ -42,8 +42,13 @@ div .bar-shadow[_ngcontent-c1] {
 }
 
 /* code editor*/
+#editor1,
+#editor2,
+#editor3 {
+  height: 400px;
+}
 .editor-container {
-  height: calc(100% - 35px);
+  border: 1px solid #ddd;
 }
 ._nghost-c4 {
   height: 600px;

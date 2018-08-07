@@ -40,7 +40,7 @@
     <div class="form-group" [ngClass]="displayFieldCss('mainfunction')">
       <label class="control-label col-sm-2" for="mainfunction">Java Function:</label>
       <div class="col-sm-10">
-        <ngx-monaco-editor [options]="editorOptions1" [(ngModel)]="code1" formControlName="mainfunction"></ngx-monaco-editor>
+        <ngx-monaco-editor id="editor1" [options]="editorOptions1" [(ngModel)]="code1" formControlName="mainfunction"></ngx-monaco-editor>
         <app-widget-validation-message [displayError]="isFieldValid('mainfunction')" errorMsg="Please enter mainfunction">
         </app-widget-validation-message>
       </div>
@@ -48,7 +48,7 @@
     <div class="form-group" [ngClass]="displayFieldCss('jsmain')">
       <label class="control-label col-sm-2" for="jsmain">Javascript Function:</label>
       <div class="col-sm-10">
-        <ngx-monaco-editor [options]="editorOptions2" [(ngModel)]="code2" formControlName="jsmain"></ngx-monaco-editor>
+        <ngx-monaco-editor id="editor2" [options]="editorOptions2" [(ngModel)]="code2" formControlName="jsmain"></ngx-monaco-editor>
         <app-widget-validation-message [displayError]="isFieldValid('jsmain')" errorMsg="Please enter jsmain">
         </app-widget-validation-message>
       </div>
@@ -57,7 +57,7 @@
       <label class="control-label col-sm-2" for="pythonmain">Python Function:</label>
       <div class="col-sm-10">
         <!--<app-widget-code-editor [code]="code3" lang="python" formControlName="pythonmain"></app-widget-code-editor>-->
-        <ngx-monaco-editor [options]="editorOptions3" [(ngModel)]="code3" formControlName="pythonmain"></ngx-monaco-editor>
+        <ngx-monaco-editor id="editor3" [options]="editorOptions3" [(ngModel)]="code3" formControlName="pythonmain"></ngx-monaco-editor>
         <app-widget-validation-message [displayError]="isFieldValid('pythonmain')" errorMsg="Please enter pythonmain">
         </app-widget-validation-message>
       </div>

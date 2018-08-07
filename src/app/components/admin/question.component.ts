@@ -60,21 +60,15 @@ export class QuestionComponent extends BaseComponent {
 
   editorOptions1 = {
     theme: "vs",
-    language: "java",
-    height: "600px",
-    minHeight: "600px"
+    language: "java"
   };
   editorOptions2 = {
     theme: "vs",
-    language: "javascript",
-    height: "600px",
-    minHeight: "600px"
+    language: "javascript"
   };
   editorOptions3 = {
     theme: "vs",
-    language: "python",
-    height: "600px",
-    minHeight: "600px"
+    language: "python"
   };
   code1: string = 'function x() {\nconsole.log("Hello world!");\n}';
   code2: string = 'function x() {\nconsole.log("Hello world!");\n}';

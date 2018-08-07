@@ -6,7 +6,7 @@ import {
   URLSearchParams,
   RequestOptions
 } from "@angular/http";
-import { Observable } from "rxjs";
+import { Observable } from "rxjs/Observable";
 import { HttpClient } from "@angular/common/http";
 import "rxjs/add/operator/map";
 import { environment } from "../../environments/environment";
