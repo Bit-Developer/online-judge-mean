@@ -14,6 +14,10 @@ Three available demos:
 
 *Note: The demo websites may be slow when you access them for the first time. Be patient!*
 
+Try it out on any live demo website with the following accounts:
+* Regular User: demo / 111111
+* Administrator: admin / 111111
+
 # Setup Locally
 ```bash
 git clone https://github.com/jojozhuang/online-judge-mean.git
