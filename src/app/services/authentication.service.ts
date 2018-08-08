@@ -44,6 +44,15 @@ export class AuthenticationService {
     }
   }
 
+  public isAdmin(): boolean {
+    const user = this.getUserDetails();
+    if (user) {
+      return user.role === "admin";
+    } else {
+      return false;
+    }
+  }
+
   private request(
     type: "login" | "signup" | "update" | "resetpwd",
     user: TokenPayload,
