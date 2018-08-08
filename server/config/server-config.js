@@ -3,7 +3,7 @@
 
 const env = process.env.NODE_ENV; // 'local', 'dev', 'stage'
 const app = {
-  secret: "MY_SECRET",
+  secret: "jwt-secret-key-johnny-abc123",
   port: parseInt(process.env.PORT) || 5000,
   request_delay: 0, // unit: seconds, 0: no delay
   temp_directory: "compiler/temp/uploads",
