@@ -2,14 +2,15 @@
 //mongodb_url: "mongodb://stage_user:abc123@ds121248.mlab.com:21248/onlinejudge_stage",
 
 const env = process.env.NODE_ENV; // 'local', 'dev', 'stage'
-
+const app = {
+  secret: "MY_SECRET",
+  port: parseInt(process.env.PORT) || 5000,
+  request_delay: 0, // unit: seconds, 0: no delay
+  temp_directory: "compiler/temp/uploads",
+  cors_client_url: "http://localhost:12080"
+};
 const local = {
-  app: {
-    port: parseInt(process.env.PORT) || 5000,
-    request_delay: 0, // unit: seconds, 0: no delay
-    temp_directory: "compiler/temp/uploads",
-    cors_client_url: "http://localhost:12080"
-  },
+  app: app,
   db: {
     host: process.env.LOCAL_DB_HOST || "testuser:abc123@localhost",
     port: parseInt(process.env.LOCAL_DB_PORT) || 27017,
@@ -17,12 +18,7 @@ const local = {
   }
 };
 const dev = {
-  app: {
-    port: parseInt(process.env.PORT) || 5000,
-    request_delay: 0, // unit: seconds, 0: no delay
-    temp_directory: "compiler/temp/uploads",
-    cors_client_url: "http://localhost:12080"
-  },
+  app: app,
   db: {
     host: process.env.DEV_DB_HOST || "dev_user:abc123@ds163781.mlab.com",
     port: parseInt(process.env.DEV_DB_PORT) || 63781,
@@ -30,12 +26,7 @@ const dev = {
   }
 };
 const stage = {
-  app: {
-    port: parseInt(process.env.PORT) || 5000,
-    request_delay: 0, // unit: seconds, 0: no delay
-    temp_directory: "compiler/temp/uploads",
-    cors_client_url: "http://localhost:12080"
-  },
+  app: app,
   db: {
     host: process.env.STAGE_DB_HOST || "stage_user:abc123@ds121248.mlab.com",
     port: parseInt(process.env.STAGE_DB_PORT) || 21248,
@@ -43,12 +34,7 @@ const stage = {
   }
 };
 const production = {
-  app: {
-    port: parseInt(process.env.PORT) || 5000,
-    request_delay: 0, // unit: seconds, 0: no delay
-    temp_directory: "compiler/temp/uploads",
-    cors_client_url: "http://localhost:12080"
-  },
+  app: app,
   db: {
     // WARNING: DO NOT MAINTAIN PRODUCTION DATABASE INFORMATION HERE
     host: process.env.PROD_DB_HOST,
@@ -64,4 +50,4 @@ const config = {
   production
 };
 
-module.exports = config[env];
+module.exports = config[env || "local"];

@@ -22,7 +22,7 @@ export class UserComponent extends BaseComponent {
     this._id = this.route.snapshot.paramMap.get("_id");
     if (this._id == null || this._id == "") {
       this.initialValidation = true;
-      this.selectedRole = "Regular";
+      this.selectedRole = "regular";
       // create
       this.baseForm = this.formBuilder.group({
         username: [null, [Validators.required, Validators.minLength(3)]],

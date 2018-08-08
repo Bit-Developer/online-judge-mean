@@ -77,7 +77,11 @@ app.use(function(err, req, res, next) {
   //console.log(err);
   if (err.name === "UnauthorizedError") {
     res.status(401);
-    res.json({ message: err.name + ": " + err.message });
+    res.json({
+      message:
+        err.name + ": " + err.message ||
+        " You have no authorization to view this page!"
+    });
   }
 
   next(err, req, res, next);

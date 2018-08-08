@@ -23,7 +23,7 @@ mongoose.connection.on("open", function() {
         hash:
           "9f51bcd7a80a8da6fa02dcc9e136cd2ea5a08a24c988e4d822ebeb0b3eb430fd9a62af4fc6e1c456cb12cbc5b8792f737166ca39b3bb0fe4d34e1cd1ae134fd3",
         salt: "f8dae7c30d811b322b8763afc424fec0",
-        role: "Admin",
+        role: "admin",
         timecreated: Date.now
       };
 

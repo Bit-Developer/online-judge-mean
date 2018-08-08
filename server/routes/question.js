@@ -1,5 +1,6 @@
 var express = require("express");
 var router = express.Router();
+const passport = require("passport"); // Because of the OPTIONS request, we can't add authorization check in the index.js, we have to apply it here, one by one.
 
 var question_controller = require("../controllers/question");
 
@@ -11,6 +12,10 @@ router.put("/:id", question_controller.question_update);
 
 router.delete("/:id", question_controller.question_delete);
 
-router.get("/", question_controller.question_all);
+router.get(
+  "/",
+  passport.authenticate("jwt", { session: false }),
+  question_controller.question_all
+);
 
 module.exports = router;

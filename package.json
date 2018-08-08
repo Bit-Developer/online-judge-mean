@@ -17,9 +17,12 @@
     "client-prod": "ng serve --prod",
     "client-aot": "ng serve -aot",
     "server-local": "NODE_ENV=local nodemon ./server/server",
+    "server-local-debug": "NODE_ENV=local nodemon DEBUG=* ./server/server",
     "server-dev": "NODE_ENV=dev nodemon ./server/server",
     "server-stage": "NODE_ENV=stage nodemon ./server/server",
     "local": "concurrently \"npm run client\" \"npm run server-local \"",
+    "local-debug":
+      "concurrently \"npm run client\" \"npm run server-local-debug \"",
     "dev": "concurrently \"npm run client\" \"npm run server-dev \"",
     "stage": "concurrently \"npm run client\" \"npm run server-stage \"",
     "prod": "npm run client-prod"
@@ -63,6 +66,7 @@
     "ngx-progressbar": "^2.1.1",
     "nodemon": "^1.18.3",
     "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
     "rxjs": "^5.5.11",
     "serve-favicon": "^2.5.0",

@@ -5,10 +5,13 @@ var authentication = require("./authentication");
 var question = require("./question");
 var user = require("./user");
 var submission = require("./submission");
+var config = require("../config/server-config");
+
+const { app: { secret } } = config;
 
 var jwt = require("express-jwt");
 var auth = jwt({
-  secret: "MY_SECRET",
+  secret: secret,
   userProperty: "payload" // the default name is user, changed to payload to avoid ambiguousness
 });
 

@@ -14,11 +14,11 @@ export class RoleSelectComponent implements OnInit {
   @Input()
   options = [
     {
-      value: "Admin",
+      value: "admin",
       name: "Admin"
     },
     {
-      value: "Regular",
+      value: "regular",
       name: "Regular"
     }
   ];

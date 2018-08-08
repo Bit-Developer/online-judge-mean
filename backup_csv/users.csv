@@ -1,4 +1,4 @@
-_id,username,email,hash,salt,timecreated,role,__v
-"5b69cd25b79aa4383dce3f9b","jojozhuang","jojozhuang@gmail.com","9f51bcd7a80a8da6fa02dcc9e136cd2ea5a08a24c988e4d822ebeb0b3eb430fd9a62af4fc6e1c456cb12cbc5b8792f737166ca39b3bb0fe4d34e1cd1ae134fd3","f8dae7c30d811b322b8763afc424fec0","Mon Aug 06 2018 22:17:33 GMT-0700 (PDT)","Admin",0
-"5b69cd25b79aa4383dce3f9c","demo","demo@gmail.com","051d9067435b237505aaa4b5dc45f957101e1b46410e47e43d051ad49fd54812b594c08600ba5b2404c4626ecc3b6a6ccc5be61ddfef7e7ac0e39a96282906de","c9159402b270b1121b9d6bc6375cb0cb","Wed Jun 20 2018 18:28:57 GMT-0700 (PDT)","Regular",0
-"5b69cd25b79aa4383dce3f9d","admin","admin@gmail.com","173d2cfe2ea15b9bcaeb02768a842deac720d0343d55e9055c8de4e6cd699c6e75b1d041587cfbae82b3ef2a4dd74c368e56084243dac31be4c0f97f78c2a2a6","32d14cd3595741ec609b49d2da6166df","Thu Jun 21 2018 16:13:29 GMT-0700 (PDT)","Admin",0
+_id,username,email,hash,salt,role
+"5b6a8b81ac9d3348072350c1","jojozhuang","jojozhuang@gmail.com","9f51bcd7a80a8da6fa02dcc9e136cd2ea5a08a24c988e4d822ebeb0b3eb430fd9a62af4fc6e1c456cb12cbc5b8792f737166ca39b3bb0fe4d34e1cd1ae134fd3","f8dae7c30d811b322b8763afc424fec0","admin"
+"5b6a8b8dac9d3348072350c4","admin","admin@gmail.com","173d2cfe2ea15b9bcaeb02768a842deac720d0343d55e9055c8de4e6cd699c6e75b1d041587cfbae82b3ef2a4dd74c368e56084243dac31be4c0f97f78c2a2a6","32d14cd3595741ec609b49d2da6166df","admin"
+"5b6a8b8dac9d3348072350c3","demo","demo@gmail.com","051d9067435b237505aaa4b5dc45f957101e1b46410e47e43d051ad49fd54812b594c08600ba5b2404c4626ecc3b6a6ccc5be61ddfef7e7ac0e39a96282906de","c9159402b270b1121b9d6bc6375cb0cb","regular"

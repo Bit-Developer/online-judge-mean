@@ -1,11 +1,18 @@
 var mongoose = require("mongoose");
 var crypto = require("crypto");
 var jwt = require("jsonwebtoken");
+var config = require("../config/server-config");
+
+const { app: { secret } } = config;
 
 var UserSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true, max: 20 },
   email: { type: String, required: true, max: 100 },
-  role: { type: String, required: true, max: 20 },
+  role: {
+    type: String,
+    enum: ["admin", "regular"],
+    default: "regular"
+  },
   hash: String,
   salt: String,
   timecreated: { type: Date, default: Date.now }
@@ -26,8 +33,8 @@ UserSchema.methods.validPassword = function(password) {
 };
 
 UserSchema.methods.validRole = function() {
-  console.log("role:", this.role);
-  return this.role === "Admin";
+  //console.log("role:", this.role);
+  return this.role === "admin";
 };
 
 UserSchema.methods.generateJwt = function() {
@@ -42,7 +49,7 @@ UserSchema.methods.generateJwt = function() {
       hash: this.hash, // include hash in token for 'remember me' function.
       exp: parseInt(expiry.getTime() / 1000)
     },
-    "MY_SECRET"
+    secret
   ); // DO NOT KEEP YOUR SECRET IN THE CODE!
 };
 
