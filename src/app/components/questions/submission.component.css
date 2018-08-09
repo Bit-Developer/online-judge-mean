@@ -1,0 +1,15 @@
+.solution-code-editor {
+  height: 450px;
+}
+.submission {
+  font-size: 16px;
+}
+.submission-date {
+  text-align: center;
+}
+.submission-status {
+  text-align: right;
+}
+.code-editor-div {
+  margin-top: 20px;
+}

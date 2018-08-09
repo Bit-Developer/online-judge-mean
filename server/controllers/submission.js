@@ -122,8 +122,8 @@ exports.question_findByKeys = function(req, res, next) {
               }
             }
           }
-          console.log(retq.id1);
-          console.log(retq);
+          //console.log(retq.id1);
+          //console.log(retq);
           res.status(200).send(retq);
         }
       );

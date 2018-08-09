@@ -39,3 +39,4 @@ export * from "./wysiwyg/wysiwyg.component";
 // algorithm questions
 export * from "./questions/algorithm-questions.component";
 export * from "./questions/algorithm-question.component";
+export * from "./questions/submission.component";

@@ -10,7 +10,7 @@ router.get("/question/:keys", submission_controller.question_findByKeys);
 // submissions
 router.post("/", submission_controller.submission_create);
 
-//router.get("/:id", question_controller.question_readone);
+router.get("/:id", submission_controller.submission_readone);
 
 router.put("/:id", submission_controller.submission_update);
 

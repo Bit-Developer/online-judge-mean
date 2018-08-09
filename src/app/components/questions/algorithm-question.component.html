@@ -39,7 +39,7 @@
             <td style="display:none;">{{submission._id}}</td>
             <td>{{submission.timesubmitted | date : "yyyy/MM/dd hh:mm:ss" }}</td>
             <td>
-              <app-widget-status-link [testResult]="[submission.status]"></app-widget-status-link>
+              <app-widget-status-link link="../../submission/{{submission._id}}" [testResult]="submission.status"></app-widget-status-link>
             </td>
             <td><span *ngIf="submission.status=='pass'">{{submission.runtime}} ms</span><span *ngIf="submission.status=='fail'">N/A</span></td>
             <td>{{submission.language}}</td>

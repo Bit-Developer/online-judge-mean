@@ -11,4 +11,33 @@ export class StatusLinkComponent implements OnInit {
   ngOnInit() {}
 
   @Input() testResult: string;
+  @Input() link: string;
+
+  getLink() {
+    return this.link;
+  }
+
+  getClass() {
+    if (this.testResult === "pass") {
+      return "ok";
+    } else {
+      return "error";
+    }
+  }
+
+  getText() {
+    if (this.testResult === "pass") {
+      return "Accepted";
+    } else {
+      return "Wrong Answer";
+    }
+  }
+
+  getImageName() {
+    if (this.testResult === "pass") {
+      return "check.png";
+    } else {
+      return "cross.png";
+    }
+  }
 }

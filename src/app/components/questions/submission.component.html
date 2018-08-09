@@ -1,0 +1,21 @@
+<div class="container">
+  <h3><a type="button" [routerLink]="['/question/', questionname]">{{getQuestionName()}}</a></h3>
+  <hr />
+  <div>
+    <div class="form-group submission">
+      <div class="col-sm-4">
+        Language: {{language}}
+      </div>
+      <div class="col-sm-4 submission-date">
+        Time Submitted: {{timesubmitted | date : "yyyy/MM/dd hh:mm:ss" }}
+      </div>
+      <div class="col-sm-4 submission-status">
+        Status:
+        <app-widget-status-link [testResult]="status"></app-widget-status-link>
+      </div>
+    </div>
+    <div class="col-sm-12 code-editor-div">
+      <ngx-monaco-editor class="solution-code-editor" [options]="editorOptions1" [(ngModel)]="code1"></ngx-monaco-editor>
+    </div>
+    <hr />
+  </div>

@@ -57,6 +57,11 @@ export class SubmissionService {
       .map(res => res.status);
   }
 
+  //Fetch submission by id
+  getSubmissionById(sid: string): Observable<Submission> {
+    return this.http.get<Submission>(this.apiUrl + "/" + sid);
+  }
+
   //Fetch submission by names
   getSubmissionByKeys(
     username: string,

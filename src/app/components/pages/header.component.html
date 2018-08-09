@@ -13,7 +13,6 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li [ngClass]="{'active': router.url === '/questions' || router.url.startsWith('/question')}"><a routerLink="questions">Questions</a></li>
-        <li><a href="#">Contest</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li *ngIf="!auth.isLoggedIn()"><a routerLink="signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>

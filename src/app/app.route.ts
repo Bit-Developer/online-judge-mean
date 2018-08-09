@@ -19,7 +19,8 @@ import {
   UserComponent,
   WysiwygComponent,
   AlgorithmQuestionComponent,
-  AlgorithmQuestionsComponent
+  AlgorithmQuestionsComponent,
+  SubmissionComponent
 } from "./components/";
 
 // services
@@ -30,6 +31,7 @@ export const appRoutes: Routes = [
   { path: "homepage", component: HomepageComponent },
   { path: "questions", component: AlgorithmQuestionsComponent },
   { path: "question/:uniquename", component: AlgorithmQuestionComponent },
+  { path: "submission/:id", component: SubmissionComponent },
   {
     path: "admin/database",
     component: DatabaseComponent,
