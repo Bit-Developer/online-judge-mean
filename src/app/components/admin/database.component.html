@@ -29,7 +29,7 @@
         <th>User Name</th>
         <th>Email</th>
         <th>Salt</th>
-        <th>Hash</th>
+        <th>Role</th>
         <th>Time Created</th>
         <th>Operations</th>
       </tr>
@@ -40,7 +40,7 @@
         <td>{{user.username}}</td>
         <td>{{user.email}}</td>
         <td>{{user.salt}}</td>
-        <td>{{user.hash.substring(0, 10)}} ...</td>
+        <td>{{user.role}}</td>
         <td>{{user.timecreated}}</td>
         <td>
           <button type="button" class="btn btn-danger" (click)="delete('users', user._id)">Delete</button>
