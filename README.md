@@ -33,10 +33,10 @@ Notice, four different environments are configured for this app. Edit './server/
 
  Environment  | Command       | Description
 --------------|---------------|-----------------------
-local         | npm run local | Development environment using local MongoDB
+local         | npm run local | Development environment using local MongoDB.
 dev           | npm run dev   | Development environment using remote MongoDB hosted on mLab.
 stage         | npm run stage | Testing environment using remote MongoDB hosted on mLab.
-prod          | npm run prod  | Production environment for deployment, need to set environment variable 'MONGOLAB_URI' for db connection.
+prod          | npm run prod  | Production environment for deployment.
 
 ## 3. Master Date
 When the server is initially started, use admin user 'jojozhuang' and password '111111' to login. Go to 'Database' to import data for 'users' and 'questions'. The data files are located in 'backup_csv' folder.
