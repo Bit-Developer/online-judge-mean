@@ -9,6 +9,9 @@ var FileApi = require("../api/FileApi");
 var fastcsv = require("fast-csv");
 const SleepUtil = require("../utils/").SleepUtil;
 
+var config = require("../config/server-config");
+const { app: { temp_directory } } = config;
+
 exports.collection_list = function(req, res, next) {
   SleepUtil.sleep();
   const collections = [
@@ -121,7 +124,7 @@ exports.collection_import = function(req, res, next) {
     return res.status(400).send("No files were uploaded.");
   }*/
 
-  var filepath = path.resolve(__dirname, "../compiler/temp/uploads/");
+  var filepath = path.resolve(__dirname, "../", temp_directory);
   var filename = "";
   var storage = multer.diskStorage({
     //multers disk storage settings

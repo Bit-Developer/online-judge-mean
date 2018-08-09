@@ -15,10 +15,11 @@ Three available demos:
 *Note: The demo websites may be slow when you access them for the first time. Be patient!*
 
 Try it out on any live demo website with the following accounts:
-* Regular User: demo / 111111
-* Administrator: admin / 111111
+* Regular User: demo / 123456
+* Administrator: admin / 123456
 
 # Setup Locally
+## 1. Source Files
 ```bash
 git clone https://github.com/jojozhuang/online-judge-mean.git
 cd online-judge-mean
@@ -26,6 +27,18 @@ npm install
 npm run dev
 ```
 Access http://localhost:12080/ in web browser, enjoy!
+
+## 2. Configuration
+Notice, four different environments are configured for this app. Edit './server/config/server-config.js' to setup your site, especially the MongoDB connection url.
+ Environment  | Command       | Description
+--------------|---------------|-----------------------
+local         | npm run local | Development environment using local MongoDB
+dev           | npm run dev   | Development environment using remote MongoDB hosted on mLab.
+stage         | npm run stage | Testing environment using remote MongoDB hosted on mLab.
+prod          | npm run prod  | Production environment for deployment, need to set environment variable 'MONGOLAB_URI' for db connection.
+
+## 3. Master Date
+When the server is initially started, use admin user 'jojozhuang' and password '111111' to login. Go to 'Database' to import data for 'users' and 'questions'. The data files are located in 'backup_csv' folder.
 
 # Deployment
 Follow the tutorial [Deploying Full Stack Angular App to Heroku](https://jojozhuang.github.io/tutorial/angular/deploying-full-stack-angular-app-to-heroku/) to deploy this app to Heroku.
