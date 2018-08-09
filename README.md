@@ -30,6 +30,7 @@ Access http://localhost:12080/ in web browser, enjoy!
 
 ## 2. Configuration
 Notice, four different environments are configured for this app. Edit './server/config/server-config.js' to setup your site, especially the MongoDB connection url.
+
  Environment  | Command       | Description
 --------------|---------------|-----------------------
 local         | npm run local | Development environment using local MongoDB
