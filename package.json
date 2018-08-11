@@ -10,7 +10,7 @@
     "start": "NODE_ENV=production node ./server/server",
     "ng": "ng",
     "build": "ng build --prod",
-    "test": "ng test",
+    "test": "echo \"Error: no test specified\"",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "client": "ng serve",
