@@ -42,7 +42,9 @@ prod          | npm run prod  | Production environment for deployment.
 When the server is initially started, use admin user 'jojozhuang' and password '111111' to login. Go to 'Database' to import data for 'users' and 'questions'. The data files are located in 'backup_csv' folder.
 
 # Deployment
-Follow the tutorial [Deploying Full Stack Angular App to Heroku](https://jojozhuang.github.io/tutorial/angular/deploying-full-stack-angular-app-to-heroku/) to deploy this app to Heroku.
+Follow tutorial [Deploying Full Stack Angular App to Heroku](https://jojozhuang.github.io/tutorial/angular/deploying-full-stack-angular-app-to-heroku/) to deploy this app to Heroku(RESTful API + Frontend Angular).
+
+Follow tutorial [Continuously Deploy MEAN Stack App to Heroku and Netlify with Travis-CI](https://jojozhuang.github.io/tutorial/angular/continuously-deploy-mean-stack-app-to-heroku-and-netlify-with-travis-ci/) to continuously deploy this Full Stack app to Heroku(RESTful API) and Netlify(Frontend Angular).
 
 # Portfolio
 Read portfolio [Online Judge(MEAN)](https://jojozhuang.github.io/portfolio/online-judge-mean/) to learn the main functions of this MEAN stack app.
