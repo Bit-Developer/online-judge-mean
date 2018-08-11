@@ -11,6 +11,7 @@
     "ng": "ng",
     "build": "ng build --prod",
     "test": "echo \"Error: no test specified\"",
+    "test-dev": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "client": "ng serve",

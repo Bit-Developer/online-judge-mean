@@ -48,4 +48,4 @@ Follow the tutorial [Deploying Full Stack Angular App to Heroku](https://jojozhu
 Read portfolio [Online Judge(MEAN)](https://jojozhuang.github.io/portfolio/online-judge-mean/) to learn the main functions of this MEAN stack app.
 
 # Tutorial
-Read tutorial [Building Online Judge Application With Angular and ExpressJS](https://jojozhuang.github.io/tutorial/angular/building-online-judge-application-with-angular-and-expressjs/) to learn how this MEAN stack app is built.
+Read tutorial [Building Online Judge Application With MEAN Stack](https://jojozhuang.github.io/tutorial/angular/building-online-judge-application-with-mean-stack/) to learn how this MEAN stack app is built.
