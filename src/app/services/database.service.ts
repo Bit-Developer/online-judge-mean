@@ -1,13 +1,4 @@
 import { Injectable } from "@angular/core";
-import {
-  Http,
-  Response,
-  Headers,
-  URLSearchParams,
-  RequestOptions,
-  ResponseContentType,
-  RequestMethod
-} from "@angular/http";
 import { Observable } from "rxjs/Observable";
 import { HttpClient } from "@angular/common/http";
 import "rxjs/add/operator/map";
