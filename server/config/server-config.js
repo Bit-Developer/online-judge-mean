@@ -4,7 +4,7 @@
 const env = process.env.NODE_ENV; // 'local', 'dev', 'stage'
 const app = {
   secret: "jwt-secret-key-johnny-abc123",
-  port: parseInt(process.env.PORT) || 5000,
+  port: parseInt(process.env.PORT) || 11001,
   request_delay: 0, // unit: seconds, 0: no delay
   temp_directory: "compiler/temp/uploads",
   cors_client_url: "http://localhost:12080"

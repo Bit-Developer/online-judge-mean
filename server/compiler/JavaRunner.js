@@ -93,14 +93,14 @@ class JavaRunner extends Runner {
     const executor = spawn("java", argsRun, options);
     executor.stdout.on("data", output => {
       const out = String(output);
-      console.log(`javaRunner->execute(): stdout:`);
+      //console.log(`javaRunner->execute(): stdout:`);
       console.log(output);
       if (out.startsWith("[Success]") || out.startsWith("[Fail]")) {
         callback("ok", String(output)); // 0, no error
       }
     });
     executor.stderr.on("data", output => {
-      console.log(`javaRunner->execute(): stderr: ${String(output)}`);
+      //console.log(`javaRunner->execute(): stderr: ${String(output)}`);
       callback("err_exe", String(output)); // 2, execution failure
     });
     executor.on("close", output => {

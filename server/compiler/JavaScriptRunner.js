@@ -35,7 +35,7 @@ class JavaScriptRunner extends Runner {
     const executor = spawn("node", argsRun, options);
     executor.stdout.on("data", output => {
       const out = String(output);
-      console.log(`javaRunner->execute(): stdout:`);
+      //console.log(`javaRunner->execute(): stdout:`);
       console.log(output);
       if (out.startsWith("[Success]") || out.startsWith("[Fail]")) {
         callback("ok", String(output)); // ok, no error

@@ -66,11 +66,11 @@ module.exports = {
           }
           // save the solution to Solution.java
           const sourceFile = path.resolve(targetDir, runner.sourceFile());
-          console.log(`source file: ${sourceFile}`);
+          //console.log(`source file: ${sourceFile}`);
           const filename = path.parse(sourceFile).name; // main
           const extension = path.parse(sourceFile).ext; // .java
-          console.log(`filename: ${filename}`);
-          console.log(`extension: ${extension}`);
+          //console.log(`filename: ${filename}`);
+          //console.log(`extension: ${extension}`);
 
           if (lang == "javascript") {
             // get method name and export it
