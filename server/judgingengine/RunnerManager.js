@@ -44,7 +44,7 @@ module.exports = {
     const targetDir = path.resolve(
       `${appRoot}`,
       "server",
-      "compiler",
+      "judgingengine",
       "temp",
       question + "_" + lang + "_" + moment().toISOString() // 2013-02-04T22:44:30.652Z
     );

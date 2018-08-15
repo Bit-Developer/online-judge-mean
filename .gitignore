@@ -4,7 +4,7 @@
 /dist
 /dist-server
 /tmp
-/server/compiler/temp
+/server/judgingengine/temp
 /out-tsc
 *.pyc
 

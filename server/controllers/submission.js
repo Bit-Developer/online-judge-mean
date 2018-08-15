@@ -2,7 +2,7 @@ const Question = require("../models/question");
 const Submission = require("../models/submission");
 const ValidationError = require("../models/validationerror");
 const ErrorUtil = require("../utils/").ErrorUtil;
-const RunnerManager = require("../compiler/RunnerManager");
+const RunnerManager = require("../judgingengine/RunnerManager");
 const moment = require("moment");
 const SleepUtil = require("../utils/").SleepUtil;
 

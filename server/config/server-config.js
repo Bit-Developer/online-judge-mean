@@ -6,7 +6,7 @@ const app = {
   secret: "jwt-secret-key-johnny-abc123",
   port: parseInt(process.env.PORT) || 11001,
   request_delay: 0, // unit: seconds, 0: no delay
-  temp_directory: "compiler/temp/uploads",
+  temp_directory: "judgingengine/temp/uploads",
   cors_client_url: "http://localhost:12080"
 };
 const local = {

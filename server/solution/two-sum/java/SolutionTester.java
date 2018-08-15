@@ -70,37 +70,37 @@ public class SolutionTester {
 
     public static void saveTestResult(String content) {
         BufferedWriter bw = null;
-		try {
-		    bw = new BufferedWriter(new FileWriter(TESTRESULT_FILE));
-			bw.write(content);
-		} catch (IOException ioe) {
-			ioe.printStackTrace();
-		} finally {
-			try {
-				if (bw != null) {
-					bw.close();
+        try {
+            bw = new BufferedWriter(new FileWriter(TESTRESULT_FILE));
+            bw.write(content);
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        } finally {
+            try {
+                if (bw != null) {
+                    bw.close();
                 }
-			} catch (IOException ex) {
-				ex.printStackTrace();
-			}
-		}
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 
     public static void printToFile(Exception ex) {
         PrintWriter pw = null;
         try {
-		    pw = new PrintWriter(TESTRESULT_FILE);
+            pw = new PrintWriter(TESTRESULT_FILE);
             ex.printStackTrace(pw);
-		} catch (IOException ioe) {
-			ioe.printStackTrace();
-		} finally {
-			try {
-				if (pw != null) {
-					pw.close();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        } finally {
+            try {
+                if (pw != null) {
+                    pw.close();
                 }
-			} catch (Exception ex2) {
-				ex2.printStackTrace();
-			}
-		}
+            } catch (Exception ex2) {
+                ex2.printStackTrace();
+            }
+        }
     }
 }

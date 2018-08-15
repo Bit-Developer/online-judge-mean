@@ -18,13 +18,13 @@
     "client-prod": "ng serve --prod",
     "client-aot": "ng serve -aot",
     "server-local":
-      "NODE_ENV=local nodemon ./server/server --ignore ./server/compiler/temp",
+      "NODE_ENV=local nodemon ./server/server --ignore ./server/judgingengine/temp",
     "server-local-debug":
-      "NODE_ENV=local nodemon DEBUG=* ./server/server --ignore ./server/compiler/temp",
+      "NODE_ENV=local nodemon DEBUG=* ./server/server --ignore ./server/judgingengine/temp",
     "server-dev":
-      "NODE_ENV=dev nodemon ./server/server --ignore ./server/compiler/temp",
+      "NODE_ENV=dev nodemon ./server/server --ignore ./server/judgingengine/temp",
     "server-stage":
-      "NODE_ENV=stage nodemon ./server/server --ignore ./server/compiler/temp",
+      "NODE_ENV=stage nodemon ./server/server --ignore ./server/judgingengine/temp",
     "local": "concurrently \"npm run client\" \"npm run server-local \"",
     "local-debug":
       "concurrently \"npm run client\" \"npm run server-local-debug \"",
