@@ -3,8 +3,32 @@ A web application for online judge(algorithm questions), built with MEAN stack(M
 
 # Function
 Solve algorithm questions, submit the solution to see if it passes all of test cases. Currently, three languages are supported, java, javascript and python.
+The implemented functions are listed as follows.
+* User Authentication - Based Token, Register, Login, Auto Login, User Profile, Reset Password, etc.
+* User Management - Create, Update, Delete user.
+* Question Management - Create, Update, Delete question.
+* Database Management - Import and Export data with csv files for users, questions and submissions.
+* Judging System - Judging Engine, Solution Template, Submission History, Multi-programming language support.
+* UI - RichTextEditor, Code Editor, Progress Bar, Loading Image are applied.
+
+The following functions are under development.
+* Contest - Generate contest by randomly selecting four questions from the question library.
+* Collaborative code editor - Different users can work on the same solution simultaneously.
 
 <kbd>![image](/public/questions.png)</kbd>
+
+# Technology
+The Server is built with Express and MongoDB.
+* RESTful API: express, express router, mongoose, cors
+* Logging: morgan, winston
+* User Authentication: jsonwebtoken, passport, cookie-parser, express-jwt
+* Import/Export Data: multer, csv-express, fast-csv
+
+The Client is built with Angular and 3rd-party libraries.
+* CSS and Icon: bootstrap, font-awesome
+* Rich Text Editor: ngx-editor
+* Code Editor: ngx-monaco-editor
+* Progress Bar: ngx-progressbar
 
 # Demo
 Three available demos:
