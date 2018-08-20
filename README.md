@@ -1,6 +1,8 @@
 # Online Judge
 A web application for online judge(algorithm questions), built with MEAN stack(MongoDB, Express, Angular and Node.js).
 
+<kbd>![image](/public/questions.png)</kbd>
+
 # Function
 This application is used to solve algorithm questions. You can submit the solution to see if it passes all the test cases. Currently, three languages are supported, java, javascript and python.
 The implemented functions are listed as follows.
@@ -14,8 +16,6 @@ The implemented functions are listed as follows.
 The following functions are under development.
 * Contest - Generate contest by randomly selecting four questions from the question library.
 * Collaborative code editor - Different users can work on the same solution simultaneously.
-
-<kbd>![image](/public/questions.png)</kbd>
 
 # Technology
 The Server is built with Express and MongoDB. The used libraries for server are listed as follows.
