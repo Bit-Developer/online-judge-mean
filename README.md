@@ -6,9 +6,8 @@ A web application for online judge(algorithm questions), built with MEAN stack(M
 <kbd>![image](/public/solution.png)</kbd>
 
 # Function
-This application is used to solve algorithm questions. You can submit the solution to see if it passes all the test cases. Currently, three languages are supported, java, javascript and python.
-The implemented functions are listed as follows.
-* User Authentication - Based Token, Register, Login, Auto Login, User Profile, Reset Password, etc.
+This application is used to solve algorithm questions. You can submit the solution to see if it passes all test cases. Three programming languages(Java, Javascript and Python) are currently supported. Below are the available features.
+* Token Based Authentication - Register, Login, Auto Login, User Profile, Reset Password, etc.
 * User Management - Create, Update, Delete user.
 * Question Management - Create, Update, Delete question.
 * Database Management - Import and Export data with csv files for users, questions and submissions.
