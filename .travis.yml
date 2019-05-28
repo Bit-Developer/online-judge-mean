@@ -8,18 +8,18 @@ branches:
   - master
 
 deploy:
-  # deploy app as api server
-  - provider: heroku
-    skip_cleanup: true
-    api-key:
-      secure: $HEROKU_API_KEY
-    app: online-judge-api
   # deploy app as front end website
   - provider: heroku
     skip_cleanup: true
     api-key:
       secure: $HEROKU_API_KEY
     app: online-judge-mean
+  # deploy app as api server
+  - provider: heroku
+    skip_cleanup: true
+    api-key:
+      secure: $HEROKU_API_KEY
+    app: online-judge-api
 
 after_deploy:
 # change settings in Procfile for client
