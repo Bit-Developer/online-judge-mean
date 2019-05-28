@@ -18,17 +18,12 @@
     "client": "ng serve",
     "client-prod": "ng serve --prod",
     "client-aot": "ng serve -aot",
-    "server-local":
-      "NODE_ENV=local nodemon ./server/server --ignore ./server/judgingengine/temp",
-    "server-local-debug":
-      "NODE_ENV=local nodemon DEBUG=* ./server/server --ignore ./server/judgingengine/temp",
-    "server-dev":
-      "NODE_ENV=dev nodemon ./server/server --ignore ./server/judgingengine/temp",
-    "server-stage":
-      "NODE_ENV=stage nodemon ./server/server --ignore ./server/judgingengine/temp",
+    "server-local": "NODE_ENV=local nodemon ./server/server --ignore ./server/judgingengine/temp",
+    "server-local-debug": "NODE_ENV=local nodemon DEBUG=* ./server/server --ignore ./server/judgingengine/temp",
+    "server-dev": "NODE_ENV=dev nodemon ./server/server --ignore ./server/judgingengine/temp",
+    "server-stage": "NODE_ENV=stage nodemon ./server/server --ignore ./server/judgingengine/temp",
     "local": "concurrently \"npm run client\" \"npm run server-local \"",
-    "local-debug":
-      "concurrently \"npm run client\" \"npm run server-local-debug \"",
+    "local-debug": "concurrently \"npm run client\" \"npm run server-local-debug \"",
     "dev": "concurrently \"npm run client\" \"npm run server-dev \"",
     "stage": "concurrently \"npm run client\" \"npm run server-stage \"",
     "prod": "npm run client-prod"
@@ -55,6 +50,7 @@
     "cors": "^2.8.4",
     "csv-express": "^1.2.2",
     "eslint": "^4.19.1",
+    "express": "^4.17.1",
     "express-jwt": "^5.3.1",
     "express-validator": "^5.3.0",
     "fast-csv": "^2.4.1",
