@@ -1,20 +1,28 @@
 language: node_js
 node_js:
-  - "8"
-sudo: false
+  - "9"
+sudo: true
 
 branches:
   only:
   - master
 
-cache:
-  directories:
-    - node_modules
-
 deploy:
-  provider: heroku
-  skip_cleanup: true
-  keep-history: true
-  api-key:
-    secure: $HEROKU_API_KEY
-  app: online-judge-api
+  # deploy app as api server
+  - provider: heroku
+    skip_cleanup: true
+    api-key:
+      secure: $HEROKU_API_KEY
+    app: online-judge-api
+  # deploy app as front end website
+  - provider: heroku
+    skip_cleanup: true
+    api-key:
+      secure: $HEROKU_API_KEY
+    app: online-judge-mean
+
+after_deploy:
+# change settings in Procfile for client
+# web: node server/server.js
+# web: node server.js
+- bash ./procfile_upd.sh
