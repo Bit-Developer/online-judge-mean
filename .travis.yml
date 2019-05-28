@@ -22,7 +22,5 @@ deploy:
     app: online-judge-api
 
 after_deploy:
-# change settings in Procfile for client
-# web: node server/server.js
-# web: node server.js
-- bash ./procfile_upd.sh
+# Procfile is only used for client, delete it to let server run 'npm start'
+- rm Procfile
