@@ -54,6 +54,11 @@ npm run dev
 ```
 Access http://localhost:12080/ in web browser, enjoy!
 
+* If you run this on Windows, you need to install 'win-node-env' first. Otherwise, server will not get started and you will get 'NODE_ENV is not recognized' error, see [“NODE_ENV” is not recognized as an internal or external command, operable command or batch file](https://stackoverflow.com/questions/11928013/node-env-is-not-recognized-as-an-internal-or-external-command-operable-comman).
+```bash
+npm install -g win-node-env
+```
+
 ## 2. Configuration
 Notice, four different environments are configured for this app. Edit './server/config/server-config.js' to setup your site, especially the MongoDB connection url.
 

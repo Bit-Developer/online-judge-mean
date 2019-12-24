@@ -1,7 +1,6 @@
 var passport = require("passport");
 var mongoose = require("mongoose");
 var moment = require("moment");
-const sleep = require("sleep");
 var User = mongoose.model("User");
 const { validationResult } = require("express-validator/check");
 const ValidationError = require("../models/validationerror");
