@@ -12,13 +12,13 @@ deploy:
   - provider: heroku
     skip_cleanup: true
     api-key:
-      secure: $HEROKU_API_KEY
+      secure: RYR5sgDazpPVMdIJfMWuowh/2iVMb05dODKJbkTesIYwYCJDik6op+8+JHu2B+sC3ilyMYPIiIWJEoIhRCnJvY46GMXdy+JhEfGO+rHZW6CGiIKUalAFGox7hJXXfexjq14FfQVb3JCUocWhXf6EAJqRa5ouiJxryExjeC0YJ0mlHOZBqX9ZD7Q/n1w+oHLJ8A6JycQ5T8OnJA4ZgrRexPjda2iRyGTZh73kuhWNqE+iTi3MXmWk6dhDgYWRIfeY9lc4f//CNiwSXIpT6EvkRuZiEkkK5o/u5i5D4ShQP/ehjc6mhjyOBuW5p025VXlXZOD6Nb4APBsKCvsA4/tl99uVFwGKCug0iUzKMBGF5jwvmkvEL6P5//ZX1TyQ5jxFdGQzerv8oCVFso8xLDJNTQTfSEeMTqaG1xJS/tcdz1baleS7hwFK4Rx6TWSqRwT1GE90wY8DZ6NzimnfQtjipvFG32PysCn3MUSWon8425L8Ak8cupn3MsFdpdGcVaLsHKDPT+3Y+WZ959BqfxWR8NFJnBEJpGsuIiQapDuguuKnZpVAH+3TqXKmY6rotNkfMaSKVerjFoa9M6ZTKcI27B0keorBUgnC6GZbj8RYnX6x/CnDTPVAwWXtuN6z0t94P2xi2+VuV3iZk06k9VgovjyltX6Kb6BtWVYfz5zpLJI=
     app: online-judge-mean
   # deploy app as api server
   - provider: heroku
     skip_cleanup: true
     api-key:
-      secure: $HEROKU_API_KEY
+      secure: RYR5sgDazpPVMdIJfMWuowh/2iVMb05dODKJbkTesIYwYCJDik6op+8+JHu2B+sC3ilyMYPIiIWJEoIhRCnJvY46GMXdy+JhEfGO+rHZW6CGiIKUalAFGox7hJXXfexjq14FfQVb3JCUocWhXf6EAJqRa5ouiJxryExjeC0YJ0mlHOZBqX9ZD7Q/n1w+oHLJ8A6JycQ5T8OnJA4ZgrRexPjda2iRyGTZh73kuhWNqE+iTi3MXmWk6dhDgYWRIfeY9lc4f//CNiwSXIpT6EvkRuZiEkkK5o/u5i5D4ShQP/ehjc6mhjyOBuW5p025VXlXZOD6Nb4APBsKCvsA4/tl99uVFwGKCug0iUzKMBGF5jwvmkvEL6P5//ZX1TyQ5jxFdGQzerv8oCVFso8xLDJNTQTfSEeMTqaG1xJS/tcdz1baleS7hwFK4Rx6TWSqRwT1GE90wY8DZ6NzimnfQtjipvFG32PysCn3MUSWon8425L8Ak8cupn3MsFdpdGcVaLsHKDPT+3Y+WZ959BqfxWR8NFJnBEJpGsuIiQapDuguuKnZpVAH+3TqXKmY6rotNkfMaSKVerjFoa9M6ZTKcI27B0keorBUgnC6GZbj8RYnX6x/CnDTPVAwWXtuN6z0t94P2xi2+VuV3iZk06k9VgovjyltX6Kb6BtWVYfz5zpLJI=
     app: online-judge-api
 
 after_deploy:
