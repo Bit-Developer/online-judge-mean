@@ -1,6 +1,10 @@
 //mongodb_url: "mongodb://stage_dev:abc123@ds163781.mlab.com/onlinejudge_dev",
 //mongodb_url: "mongodb://stage_user:abc123@ds121248.mlab.com:21248/onlinejudge_stage",
 
+// Migreate from mLab to MongoDB Atlas, see https://docs.mlab.com/how-to-migrate-sandbox-databases-to-atlas/.
+// mongodb+srv://dev_user:abc123@onlinejudge-dev.aq7lg.mongodb.net/onlinejudge_dev?retryWrites=true&w=majority
+// mongodb+srv://stage_user:abc123@onlinejudge-stage.9en0b.mongodb.net/onlinejudge_stage?retryWrites=true&w=majority
+
 const env = process.env.NODE_ENV; // 'local', 'dev', 'stage'
 const app = {
   secret: "jwt-secret-key-johnny-abc123",
@@ -20,16 +24,16 @@ const local = {
 const dev = {
   app: app,
   db: {
-    host: process.env.DEV_DB_HOST || "dev_user:abc123@ds163781.mlab.com",
-    port: parseInt(process.env.DEV_DB_PORT) || 63781,
+    host: process.env.DEV_DB_HOST || "dev_user:abc123@onlinejudge-dev.aq7lg.mongodb.net",
+    //port: parseInt(process.env.DEV_DB_PORT) || 63781,
     name: process.env.DEV_DB_NAME || "onlinejudge_dev"
   }
 };
 const stage = {
   app: app,
   db: {
-    host: process.env.STAGE_DB_HOST || "stage_user:abc123@ds121248.mlab.com",
-    port: parseInt(process.env.STAGE_DB_PORT) || 21248,
+    host: process.env.STAGE_DB_HOST || "stage_user:abc123@onlinejudge-stage.9en0b.mongodb.net",
+    //port: parseInt(process.env.STAGE_DB_PORT) || 21248,
     name: process.env.STAGE_DB_NAME || "onlinejudge_stage"
   }
 };
@@ -38,7 +42,7 @@ const production = {
   db: {
     // WARNING: DO NOT MAINTAIN PRODUCTION DATABASE INFORMATION HERE
     host: process.env.PROD_DB_HOST,
-    port: parseInt(process.env.PROD_DB_PORT),
+    //port: parseInt(process.env.PROD_DB_PORT),
     name: process.env.PROD_DB_NAME
   }
 };

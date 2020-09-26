@@ -4,7 +4,10 @@ const config = require("../config/server-config");
 var gracefulShutdown;
 // mongodb url
 const { db: { host, port, name } } = config;
-var dbURI = `mongodb://${host}:${port}/${name}`;
+//var dbURI = `mongodb://${host}:${port}/${name}`;
+// mongodb+srv://dev_user:<password>@onlinejudge-dev.aq7lg.mongodb.net/onlinejudge_dev?retryWrites=true&w=majority
+var dbURI = `mongodb+srv://${host}/${name}?retryWrites=true&w=majority`;
+
 if (process.env.NODE_ENV === "production") {
   dbURI = process.env.MONGOLAB_URI;
 }
