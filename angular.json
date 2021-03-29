@@ -33,6 +33,23 @@
             "scripts": []
           },
           "configurations": {
+            "nas": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.nas.ts"
+                }
+              ]
+            },
             "production": {
               "optimization": true,
               "outputHashing": "all",
@@ -56,10 +73,13 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "angular-tutorial:build",
-            "port": 12080,
+            "port": 9020,
             "host": "localhost"
           },
           "configurations": {
+            "nas": {
+              "browserTarget": "angular-tutorial:build:nas"
+            },
             "production": {
               "browserTarget": "angular-tutorial:build:production"
             }

@@ -52,7 +52,7 @@ cd online-judge-mean
 npm install
 npm run dev
 ```
-Access http://localhost:12080/ in web browser, enjoy!
+Access http://localhost:9020/ in web browser, enjoy!
 
 * If you run this on Windows, you need to install 'win-node-env' first. Otherwise, server will not get started and you will get 'NODE_ENV is not recognized' error, see [“NODE_ENV” is not recognized as an internal or external command, operable command or batch file](https://stackoverflow.com/questions/11928013/node-env-is-not-recognized-as-an-internal-or-external-command-operable-comman).
 ```bash
@@ -82,3 +82,21 @@ Read portfolio [Online Judge(MEAN)](https://jojozhuang.github.io/project/online-
 
 # Tutorial
 Read tutorial [Online Judge - Building Web App with MEAN Stack](https://jojozhuang.github.io/tutorial/online-judge-building-web-app-with-mean-stack) to learn how this MEAN stack app is built.
+
+
+# Docker
+Build for production. All the compiled html files and js files will be generated in `dist`.
+```sh
+npm run build-nas
+```
+Create image with node.
+```sh
+docker build -t jojozhuang/online-judge-server .
+docker build -t jojozhuang/online-judge-web .
+```
+Create container.
+```sh
+docker run --name online-judge-server -p 9021:80 -d jojozhuang/online-judge-server
+docker run --name online-judge-web -p 9020:80 -d jojozhuang/online-judge-web
+```
+Access http://192.168.0.2:9020/ in browser.

@@ -25,7 +25,9 @@
     "local-debug": "concurrently \"npm run client\" \"npm run server-local-debug \"",
     "dev": "concurrently \"npm run client\" \"npm run server-dev \"",
     "stage": "concurrently \"npm run client\" \"npm run server-stage \"",
-    "prod": "npm run client-prod"
+    "prod": "npm run client-prod",
+    "build-nas": "ng build --configuration nas",
+    "start-nas": "ng serve --configuration nas"
   },
   "private": true,
   "dependencies": {

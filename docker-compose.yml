@@ -1,0 +1,38 @@
+# docker-compose.yaml
+version: '3.7'
+
+services:
+  # Database
+  db:
+    image: mongo
+    container_name: db
+    command: mongod --port 9042
+    ports:
+      - '9042:9042'
+    volumes:
+      # - '/Users/johnny/Docker/leetcode/mongodb:/data/db'
+      - '/var/services/web/docker/leetcode/mongodb:/data/db'
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: leetcode-algorithm-nas
+  # Api
+  api:
+    image: jojozhuang/leetcode-algorithm-api:latest
+    container_name: api
+    ports:
+      - '12041:80'
+    restart: always
+    links:
+      - db
+  # Web
+  web:
+    image: jojozhuang/leetcode-algorithm-angular:latest
+    container_name: web
+    ports:
+      - '12040:80'
+    volumes:
+      - '/var/services/web/docker/leetcode/nginx:/etc/nginx/conf.d'
+    #  - '/Users/johnny/Docker/leetcode/nginx:/etc/nginx/conf.d'
+    restart: always
+    links:
+      - api

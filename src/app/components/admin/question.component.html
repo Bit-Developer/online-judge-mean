@@ -1,7 +1,7 @@
 <div class="container">
   <h2 *ngIf="!_id">Create New Question</h2>
   <h2 *ngIf="_id">Edit Question</h2>
-  <hr/>
+  <hr />
   <form class="form-horizontal" [formGroup]="baseForm" (ngSubmit)="onSubmit()">
     <div *ngIf="_id" class="form-group">
       <label class="control-label col-sm-2" for="_id">Question ID:</label>
@@ -12,17 +12,20 @@
     <div class="form-group" [ngClass]="displayFieldCss('sequence')">
       <label class="control-label col-sm-2" for="sequence">Sequence:</label>
       <div class="col-sm-2">
-        <input class="form-control" placeholder="Enter sequence" type="text" name="sequence" formControlName="sequence" />
-        <app-widget-validation-message [displayError]="isFieldValid('sequence')" errorMsg="Sequence must be between 0 and 2147483647">
+        <input class="form-control" placeholder="Enter sequence" type="text" name="sequence"
+          formControlName="sequence" />
+        <app-widget-validation-message [displayError]="isFieldValid('sequence')"
+          errorMsg="Sequence must be between 0 and 2147483647">
         </app-widget-validation-message>
       </div>
     </div>
     <div class="form-group" [ngClass]="displayFieldCss('title')">
       <label class="control-label col-sm-2" for="title">Title:</label>
       <div class="col-sm-4">
-        <input class="form-control" placeholder="Enter title" type="text" name="title" formControlName="title" (ngModelChange)="onTitleChange($event)"
-        />
-        <app-widget-validation-message [displayError]="isFieldValid('title')" errorMsg="Title must be at least 5 chars long">
+        <input class="form-control" placeholder="Enter title" type="text" name="title" formControlName="title"
+          (ngModelChange)="onTitleChange($event)" />
+        <app-widget-validation-message [displayError]="isFieldValid('title')"
+          errorMsg="Title must be at least 5 chars long">
         </app-widget-validation-message>
       </div>
       <div class="col-sm-4">
@@ -32,7 +35,8 @@
     <div class="form-group" [ngClass]="displayFieldCss('description')">
       <label class="control-label col-sm-2" for="description">Description:</label>
       <div class="col-sm-10">
-        <app-ngx-editor [config]="editorConfig" [(ngModel)]="htmlContent" name="description" formControlName="description"></app-ngx-editor>
+        <app-ngx-editor [config]="editorConfig" [(ngModel)]="htmlContent" name="description"
+          formControlName="description"></app-ngx-editor>
         <app-widget-validation-message [displayError]="isFieldValid('description')" errorMsg="Please enter description">
         </app-widget-validation-message>
       </div>
@@ -40,15 +44,18 @@
     <div class="form-group" [ngClass]="displayFieldCss('mainfunction')">
       <label class="control-label col-sm-2" for="mainfunction">Java Function:</label>
       <div class="col-sm-10">
-        <ngx-monaco-editor id="editor1" [options]="editorOptions1" [(ngModel)]="code1" formControlName="mainfunction"></ngx-monaco-editor>
-        <app-widget-validation-message [displayError]="isFieldValid('mainfunction')" errorMsg="Please enter mainfunction">
+        <ngx-monaco-editor id="editor1" [options]="editorOptions1" [(ngModel)]="code1" formControlName="mainfunction">
+        </ngx-monaco-editor>
+        <app-widget-validation-message [displayError]="isFieldValid('mainfunction')"
+          errorMsg="Please enter mainfunction">
         </app-widget-validation-message>
       </div>
     </div>
     <div class="form-group" [ngClass]="displayFieldCss('jsmain')">
       <label class="control-label col-sm-2" for="jsmain">Javascript Function:</label>
       <div class="col-sm-10">
-        <ngx-monaco-editor id="editor2" [options]="editorOptions2" [(ngModel)]="code2" formControlName="jsmain"></ngx-monaco-editor>
+        <ngx-monaco-editor id="editor2" [options]="editorOptions2" [(ngModel)]="code2" formControlName="jsmain">
+        </ngx-monaco-editor>
         <app-widget-validation-message [displayError]="isFieldValid('jsmain')" errorMsg="Please enter jsmain">
         </app-widget-validation-message>
       </div>
@@ -57,7 +64,8 @@
       <label class="control-label col-sm-2" for="pythonmain">Python Function:</label>
       <div class="col-sm-10">
         <!--<app-widget-code-editor [code]="code3" lang="python" formControlName="pythonmain"></app-widget-code-editor>-->
-        <ngx-monaco-editor id="editor3" [options]="editorOptions3" [(ngModel)]="code3" formControlName="pythonmain"></ngx-monaco-editor>
+        <ngx-monaco-editor id="editor3" [options]="editorOptions3" [(ngModel)]="code3" formControlName="pythonmain">
+        </ngx-monaco-editor>
         <app-widget-validation-message [displayError]="isFieldValid('pythonmain')" errorMsg="Please enter pythonmain">
         </app-widget-validation-message>
       </div>
@@ -77,7 +85,8 @@
     <div class="form-group" [ngClass]="displayFieldCss('difficulty')">
       <label class="control-label col-sm-2" for="difficulty">Difficulty:</label>
       <div class="col-sm-2">
-        <app-widget-difficulty-select [selectedValue]="selectedValue" name="difficulty" formControlName="difficulty" ngDefaultControl></app-widget-difficulty-select>
+        <app-widget-difficulty-select [selectedValue]="selectedValue" name="difficulty" formControlName="difficulty"
+          ngDefaultControl></app-widget-difficulty-select>
         <app-widget-validation-message [displayError]="isFieldValid('difficulty')" errorMsg="Please specify difficulty">
         </app-widget-validation-message>
       </div>
@@ -85,8 +94,10 @@
     <div class="form-group" [ngClass]="displayFieldCss('frequency')">
       <label class="control-label col-sm-2" for="frequency">Frequency:</label>
       <div class="col-sm-2">
-        <input class="form-control" placeholder="Enter frequency" type="text" name="frequency" formControlName="frequency" />
-        <app-widget-validation-message [displayError]="isFieldValid('frequency')" errorMsg="Frequency must be between 0 and 100">
+        <input class="form-control" placeholder="Enter frequency" type="text" name="frequency"
+          formControlName="frequency" />
+        <app-widget-validation-message [displayError]="isFieldValid('frequency')"
+          errorMsg="Frequency must be between 0 and 100">
         </app-widget-validation-message>
       </div>
     </div>
@@ -94,7 +105,8 @@
       <label class="control-label col-sm-2" for="rating">Rating:</label>
       <div class="col-sm-2">
         <app-widget-rating-input name="rating" formControlName="rating"></app-widget-rating-input>
-        <app-widget-validation-message [displayError]="isFieldValid('rating')" errorMsg="Rating must be between 0 and 5">
+        <app-widget-validation-message [displayError]="isFieldValid('rating')"
+          errorMsg="Rating must be between 0 and 5">
         </app-widget-validation-message>
       </div>
     </div>

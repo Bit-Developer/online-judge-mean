@@ -3,13 +3,19 @@ import { Router } from "@angular/router";
 import { UserDetails } from "../../models";
 import { AuthenticationService } from "../../services";
 import { AuthUtil } from "../../utils";
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: "app-header",
-  templateUrl: "./header.component.html"
+  templateUrl: "./header.component.html",
+  styleUrls: ["./header.component.css"]
 })
 export class HeaderComponent implements OnInit {
-  constructor(public auth: AuthenticationService, public router: Router) {}
+  envName: string;
 
-  ngOnInit() {}
+  constructor(public auth: AuthenticationService, public router: Router) { }
+
+  ngOnInit() {
+    this.envName = environment.env_name;
+  }
 }
