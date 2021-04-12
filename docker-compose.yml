@@ -11,11 +11,11 @@ services:
       - '9042:9042'
     volumes:
       # - '/Users/johnny/Docker/leetcode/mongodb:/data/db'
-      - '/var/services/web/docker/leetcode/mongodb:/data/db'
+      - '/var/services/web/docker/online-judge/mongodb:/data/db'
     restart: always
     environment:
-      MONGO_INITDB_DATABASE: leetcode-algorithm-nas
-  # Api
+      MONGO_INITDB_DATABASE: online-judge-nas
+  # Api +
   api:
     image: jojozhuang/leetcode-algorithm-api:latest
     container_name: api

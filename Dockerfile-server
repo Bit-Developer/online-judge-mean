@@ -22,8 +22,8 @@ FROM node:15.12.0-alpine
 WORKDIR /app
 
 # environment variables
-ENV NODE_ENV=dev
-ENV PORT=80
+ENV NODE_ENV=stage \
+  PORT=9021
 
 # We just need the build to execute the command
 COPY --from=builder /usr/src/app .

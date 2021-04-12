@@ -1,4 +1,7 @@
 .env-name {
+  color: whitesmoke;
+  background-color: olivedrab;
+  margin-left: 20px;
+  padding: 0px 8px;
   font-weight: bold;
-  color: greenyellow;
 }
