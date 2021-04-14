@@ -23,7 +23,7 @@ WORKDIR /app
 
 # environment variables
 ENV NODE_ENV=stage \
-  PORT=9021
+  PORT=80
 
 # We just need the build to execute the command
 COPY --from=builder /usr/src/app .
