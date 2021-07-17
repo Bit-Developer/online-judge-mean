@@ -22,7 +22,7 @@ export class EditorComponent implements OnInit {
 
   ngOnInit() {}
 
-  @ViewChild("editor", { static: false }) editor;
+  @ViewChild("editor") editor;
   text: string = "";
 
   ngAfterViewInit() {
