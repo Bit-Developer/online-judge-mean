@@ -112,7 +112,7 @@ import { appRoutes } from "./app.route";
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
     AlertModule.forRoot(),
     ModalModule.forRoot(),
     MonacoEditorModule.forRoot(),

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ContextualLabelComponent } from './contextual-label.component';
 
@@ -6,7 +6,7 @@ describe('ContextualLabelComponent', () => {
   let component: ContextualLabelComponent;
   let fixture: ComponentFixture<ContextualLabelComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ContextualLabelComponent ]
     })
