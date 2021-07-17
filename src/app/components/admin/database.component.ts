@@ -43,7 +43,7 @@ export class DatabaseComponent extends RootComponent {
   }
 
   @Input() options = [];
-  @ViewChild("fileupd") fileupd;
+  @ViewChild("fileupd", { static: false }) fileupd;
 
   ngOnInit() {
     this.uploadForm = this.formBuilder.group({
