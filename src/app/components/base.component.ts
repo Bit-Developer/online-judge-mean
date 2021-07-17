@@ -1,4 +1,4 @@
-import { Component, Injectable, OnInit } from "@angular/core";
+import { Component, Directive, Injectable, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import {
@@ -9,6 +9,7 @@ import {
   AuthenticationService
 } from "../services/";
 
+@Directive()
 @Injectable()
 export abstract class BaseComponent implements OnInit {
   public logging = true;

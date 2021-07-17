@@ -14,10 +14,8 @@ import {
   DatabaseComponent,
   QuestionsComponent,
   QuestionComponent,
-  EditorComponent,
   UsersComponent,
   UserComponent,
-  WysiwygComponent,
   AlgorithmQuestionComponent,
   AlgorithmQuestionsComponent,
   SubmissionComponent
@@ -66,14 +64,6 @@ export const appRoutes: Routes = [
     path: "admin/question/:_id",
     component: QuestionComponent,
     canActivate: [AuthGuardService]
-  },
-  {
-    path: "editor",
-    component: EditorComponent
-  },
-  {
-    path: "wysiwyg",
-    component: WysiwygComponent
   },
   { path: "signup", component: SignupComponent },
   { path: "login", component: LoginComponent },

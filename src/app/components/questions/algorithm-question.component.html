@@ -55,9 +55,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="tab==='solution'">
-    <app-ngx-editor [config]="editorConfig" [(ngModel)]="solution"></app-ngx-editor>
-  </div>
+  <div *ngIf="tab==='solution'" innerHTML={{solution}}></div>
   <hr />
   <div>
     <form class="form-horizontal" [formGroup]="baseForm">

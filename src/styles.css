@@ -4,15 +4,15 @@ html {
 }
 
 /* progress bar at top */
-.bar {
+.ng-progress-bar {
   margin-top: 50px;
 }
-.spinner {
+.ng-spinner {
   margin-top: 50px;
 }
 
-div .bar-shadow[_ngcontent-c1] {
-  all: initial;
+.ng-meteor {
+  box-shadow: 10px 0px 5px black !important;
 }
 
 /* tab */
@@ -52,4 +52,23 @@ div .bar-shadow[_ngcontent-c1] {
 }
 ._nghost-c4 {
   height: 600px;
+}
+
+
+pre.ql-syntax {
+  background-color: #f5f5f5 !important;
+  color: inherit !important;
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  word-break: break-all;
+  word-wrap: break-word;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.ql-editor {
+  font-size: 14px !important;
 }

@@ -6,8 +6,6 @@ export * from "./widgets/contextual-label/contextual-label.component";
 export * from "./widgets/frequency-bar/frequency-bar.component";
 export * from "./widgets/difficulty-select/difficulty-select.component";
 export * from "./widgets/role-select/role-select.component";
-export * from "./widgets/wysiwyg-editor/wysiwyg-editor.component";
-export * from "./widgets/code-editor/code-editor.component";
 export * from "./widgets/rating-input/rating-input.component";
 export * from "./widgets/progress-bar/progress-bar.component";
 export * from "./widgets/language-select/language-select.component";
@@ -31,10 +29,6 @@ export * from "./admin/questions.component";
 export * from "./admin/question.component";
 export * from "./admin/users.component";
 export * from "./admin/user.component";
-
-// testing editor controls
-export * from "./codeeditor/editor.component";
-export * from "./wysiwyg/wysiwyg.component";
 
 // algorithm questions
 export * from "./questions/algorithm-questions.component";

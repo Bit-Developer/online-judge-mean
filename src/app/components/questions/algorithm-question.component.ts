@@ -1,4 +1,4 @@
-import { Component, ViewChild, Input, OnInit } from "@angular/core";
+import { Component, ViewChild, Input} from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Question, Submission } from "../../models";
 import { BaseComponent } from "../base.component";

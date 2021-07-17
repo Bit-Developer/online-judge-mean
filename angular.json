@@ -19,18 +19,25 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "node_modules/ngx-monaco-editor/assets/monaco",
-                "output": "/assets/monaco"
+                "input": "node_modules/monaco-editor",
+                "output": "assets/monaco-editor"
               },
               "src/assets",
               "src/favicon.ico"
             ],
             "styles": [
+              "./node_modules/quill/dist/quill.core.css",
+              "./node_modules/quill/dist/quill.bubble.css",
+              "./node_modules/quill/dist/quill.snow.css",
+              "./node_modules/katex/dist/katex.min.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/font-awesome/css/font-awesome.css",
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "./node_modules/quill/dist/quill.min.js",
+              "./node_modules/katex/dist/katex.min.js"
+            ],
             "vendorChunk": true,
             "extractLicenses": false,
             "buildOptimizer": false,
@@ -89,7 +96,8 @@
           "options": {
             "browserTarget": "angular-tutorial:build",
             "port": 9020,
-            "host": "localhost"
+            "host": "localhost",
+            "proxyConfig": "src/proxy-local.conf.json"
           },
           "configurations": {
             "nas": {
@@ -122,8 +130,8 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "node_modules/ngx-monaco-editor/assets/monaco",
-                "output": "/assets/monaco"
+                "input": "node_modules/monaco-editor",
+                "output": "assets/monaco-editor"
               },
               "src/assets",
               "src/favicon.ico"

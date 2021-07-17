@@ -28,6 +28,10 @@ require("./models/mongodb");
 require("./config/passport-config");
 
 var app = express();
+/* test delay
+app.use( ( req, res, next ) => {
+  setTimeout(next, Math.floor( ( Math.random() * 10000 ) + 100 ) );
+});*/
 app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 app.use(cookieParser());
 

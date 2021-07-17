@@ -4,11 +4,13 @@ import { NgModule } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
 import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
-import { AlertModule, ModalModule } from "ngx-bootstrap";
+import { AlertModule } from "ngx-bootstrap/alert";
+import { ModalModule } from "ngx-bootstrap/modal";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
-import { NgxEditorModule } from "ngx-editor";
-import { NgProgressModule, NgProgressInterceptor } from "ngx-progressbar";
+import { NgProgressModule } from "ngx-progressbar";
+import { ɵa } from 'ngx-progressbar/http';
 import { MonacoEditorModule } from "ngx-monaco-editor";
+import { QuillModule } from 'ngx-quill'
 
 // components
 import {
@@ -21,14 +23,12 @@ import {
   DatabaseComponent,
   QuestionsComponent,
   QuestionComponent,
-  EditorComponent,
   UsersComponent,
   UserComponent,
   SignupComponent,
   LoginComponent,
   ResetpwdComponent,
   ProfileComponent,
-  WysiwygComponent,
   AlgorithmQuestionComponent,
   AlgorithmQuestionsComponent,
   SubmissionComponent,
@@ -38,8 +38,6 @@ import {
   LoadingLinkComponent,
   DifficultySelectComponent,
   RoleSelectComponent,
-  WysiwygEditorComponent,
-  CodeEditorComponent,
   RatingInputComponent,
   ProgressBarComponent,
   LanguageSelectComponent,
@@ -88,8 +86,6 @@ import { appRoutes } from "./app.route";
     LoginComponent,
     ResetpwdComponent,
     ProfileComponent,
-    EditorComponent,
-    WysiwygComponent,
     ContextualLabelComponent,
     FrequencyBarComponent,
     LoadingImageComponent,
@@ -99,8 +95,6 @@ import { appRoutes } from "./app.route";
     SubmissionComponent,
     DifficultySelectComponent,
     RoleSelectComponent,
-    WysiwygEditorComponent,
-    CodeEditorComponent,
     RatingInputComponent,
     ProgressBarComponent,
     LanguageSelectComponent,
@@ -118,7 +112,7 @@ import { appRoutes } from "./app.route";
     MonacoEditorModule.forRoot(),
     FormsModule,
     HttpClientModule,
-    NgxEditorModule,
+    QuillModule.forRoot(),
     NgProgressModule
   ],
   providers: [
@@ -133,7 +127,7 @@ import { appRoutes } from "./app.route";
     JwtInterceptor,
     CookieInterceptor,
     TimeoutInterceptor,
-    { provide: HTTP_INTERCEPTORS, useClass: NgProgressInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: ɵa, multi: true }
   ],
   bootstrap: [AppComponent]
 })

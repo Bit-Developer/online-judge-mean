@@ -1,4 +1,3 @@
-const mkdirp = require("mkdirp");
 const fs = require("fs");
 const getDirName = require("path").dirname;
 const path = require("path");
@@ -37,7 +36,7 @@ module.exports = {
   creatDirectory(path, callback) {
     if (!fs.existsSync(path)) {
       // create parent directories if they doesn't exist.
-      mkdirp(path, err => {
+      fs.mkdir(path, err => {
         if (err) return callback(err);
         callback(
           null,
@@ -51,7 +50,7 @@ module.exports = {
 
   saveFile(file, content, callback) {
     // create parent directories if they doesn't exist.
-    mkdirp(getDirName(file), err => {
+    fs.mkdir(getDirName(file), err => {
       if (err) return callback(err);
 
       return fs.writeFile(file, content, err2 => {
@@ -90,7 +89,7 @@ module.exports = {
 
   copyDirectory(source, target, callback) {
     // create target directory if it doesn't exist.
-    mkdirp(target, err => {
+    fs.mkdir(target, err => {
       if (err) return callback(err);
 
       ncp(source, target, function(err) {

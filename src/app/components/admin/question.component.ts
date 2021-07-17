@@ -1,7 +1,6 @@
 import { Component, ViewChild, Input, OnInit } from "@angular/core";
 import { Validators } from "@angular/forms";
 import { BaseComponent } from "../base.component";
-import { DiffEditorModel } from "ngx-monaco-editor";
 
 @Component({
   selector: "app-question",
@@ -132,7 +131,6 @@ export class QuestionComponent extends BaseComponent {
         solution: []
       });
       this.selectedValue = 10;
-      //this.htmlContent = "";
       //this.codecontent = "";
     } else {
       this.baseForm = this.formBuilder.group({
@@ -205,7 +203,6 @@ export class QuestionComponent extends BaseComponent {
             hints: question.hints,
             solution: question.solution || ""
           });
-
           // add validation later to avoid flash of red message
           this.baseForm.controls["_id"].setValidators([Validators.required]);
           this.baseForm.controls["sequence"].setValidators([
@@ -289,7 +286,6 @@ export class QuestionComponent extends BaseComponent {
           this.code2 = question.jsmain;
           this.code3 = question.pythonmain;
           this.selectedValue = question.difficulty;
-          //this.htmlContent = question.description;
           //this.codecontent = question.mainfunction;
         },
         error => {
