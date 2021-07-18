@@ -36,7 +36,7 @@ module.exports = {
   creatDirectory(path, callback) {
     if (!fs.existsSync(path)) {
       // create parent directories if they doesn't exist.
-      fs.mkdir(path, err => {
+      fs.mkdir(path, { recursive: true }, err => {
         if (err) return callback(err);
         callback(
           null,
@@ -50,7 +50,7 @@ module.exports = {
 
   saveFile(file, content, callback) {
     // create parent directories if they doesn't exist.
-    fs.mkdir(getDirName(file), err => {
+    fs.mkdir(getDirName(file), { recursive: true }, err => {
       if (err) return callback(err);
 
       return fs.writeFile(file, content, err2 => {
@@ -89,7 +89,9 @@ module.exports = {
 
   copyDirectory(source, target, callback) {
     // create target directory if it doesn't exist.
-    fs.mkdir(target, err => {
+    console.log(source)
+    console.log(target)
+    fs.mkdir(target, { recursive: true }, err => {
       if (err) return callback(err);
 
       ncp(source, target, function(err) {
