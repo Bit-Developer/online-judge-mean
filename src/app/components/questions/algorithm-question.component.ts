@@ -10,21 +10,6 @@ import { environment } from "../../../environments/environment";
   templateUrl: "./algorithm-question.component.html"
 })
 export class AlgorithmQuestionComponent extends BaseComponent {
-  editorConfig = {
-    editable: false,
-    spellcheck: false,
-    height: "auto",
-    minHeight: "5rem",
-    width: "auto",
-    minWidth: "0",
-    translate: "no",
-    enableToolbar: false,
-    showToolbar: false,
-    placeholder: "Enter text here...",
-    imageEndPoint: "",
-    toolbar: []
-  };
-
   tab;
   _id;
   username;

@@ -28,7 +28,7 @@ The Server is built with Express and MongoDB. The used libraries for server are 
 
 The Client is built with Angular and 3rd-party libraries, see below.
 * CSS and Icon: bootstrap, font-awesome
-* Rich Text Editor: ngx-editor
+* Rich Text Editor: ngx-quill
 * Code Editor: ngx-monaco-editor
 * Progress Bar: ngx-progressbar
 
@@ -76,6 +76,28 @@ When the server is initially started, use admin user 'jojozhuang' and password '
 Follow tutorial [Online Judge - Deploying Full Stack Angular App to Heroku](https://jojozhuang.github.io/tutorial/online-judge-deploying-full-stack-angular-app-to-heroku) to deploy this app to Heroku(RESTful API + Frontend Angular).
 
 Follow tutorial [Online Judge - Continuously Deploy MEAN Stack App to Heroku and Netlify with Travis-CI](https://jojozhuang.github.io/tutorial/online-judge-continuously-deploy-mean-stack-app-to-heroku-and-netlify-with-travis-ci) to continuously deploy this Full Stack app to Heroku(RESTful API) and Netlify(Frontend Angular).
+
+## Manually push change to Heroku app
+Manually deploy the same git repo to two apps in heroku.
+
+Server.
+```sh
+cd online-judge-mean
+heroku login
+heroku git:remote -a online-judge-api
+git commit --allow-empty -m "Upgrading to heroku-20"
+git push heroku master
+```
+
+Client.
+```sh
+cd online-judge-mean
+heroku login
+heroku git:remote -a online-judge-mean
+git commit --allow-empty -m "Upgrading to heroku-20"
+git push heroku master
+```
+
 
 # Portfolio
 Read portfolio [Online Judge(MEAN)](https://jojozhuang.github.io/project/online-judge-mean) to learn the main functions of this MEAN stack app.

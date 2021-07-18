@@ -7,50 +7,6 @@ import { BaseComponent } from "../base.component";
   templateUrl: "./question.component.html"
 })
 export class QuestionComponent extends BaseComponent {
-  // configuration of rich text editor(ngx-editor)
-  editorConfig = {
-    editable: true,
-    spellcheck: true,
-    height: "20rem",
-    minHeight: "5rem",
-    width: "auto",
-    minWidth: "0",
-    translate: "no",
-    enableToolbar: true,
-    showToolbar: true,
-    placeholder: "Enter text here...",
-    imageEndPoint: "",
-    toolbar: [
-      [
-        "bold",
-        "italic",
-        "underline",
-        "strikeThrough",
-        "superscript",
-        "subscript"
-      ],
-      ["fontName", "fontSize", "color"],
-      [
-        "justifyLeft",
-        "justifyCenter",
-        "justifyRight",
-        "justifyFull",
-        "indent",
-        "outdent"
-      ],
-      ["cut", "copy", "delete", "removeFormat", "undo", "redo"],
-      [
-        "paragraph",
-        "blockquote",
-        "removeBlockquote",
-        "horizontalLine",
-        "orderedList",
-        "unorderedList"
-      ],
-      ["link", "unlink", "image", "video"]
-    ]
-  };
-
   _id;
 
   public selectedValue;
