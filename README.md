@@ -77,9 +77,307 @@ Follow tutorial [Online Judge - Deploying Full Stack Angular App to Heroku](http
 
 Follow tutorial [Online Judge - Continuously Deploy MEAN Stack App to Heroku and Netlify with Travis-CI](https://jojozhuang.github.io/tutorial/online-judge-continuously-deploy-mean-stack-app-to-heroku-and-netlify-with-travis-ci) to continuously deploy this Full Stack app to Heroku(RESTful API) and Netlify(Frontend Angular).
 
-## Manually push change to Heroku app
-Manually deploy the same git repo to two apps in heroku.
+## Steps
+Manually deploy the same git repo to two apps in heroku. Use `Multi Procfile buildpack` to deploy multiple apps in a monorepo.
 
+### Server
+Create app `online-judge-api` for backend api.
+```sh
+cd online-judge-mean
+heroku login
+heroku create -a online-judge-api
+heroku buildpacks:add -a online-judge-api heroku-community/multi-procfile
+heroku buildpacks:add -a online-judge-api heroku/nodejs
+heroku config:set -a online-judge-api PROCFILE=server/Procfile
+git push https://git.heroku.com/online-judge-api.git HEAD:master
+```
+Output.
+```sh
+-----> Building on the Heroku-20 stack
+-----> Using buildpacks:
+       1. heroku-community/multi-procfile
+       2. heroku/nodejs
+-----> Multi-procfile app detected
+       Copied server/Procfile as Procfile successfully
+-----> Node.js app detected
+
+-----> Creating runtime environment
+
+       NPM_CONFIG_LOGLEVEL=error
+       NODE_VERBOSE=false
+       NODE_ENV=production
+       NODE_MODULES_CACHE=true
+
+-----> Installing binaries
+       engines.node (package.json):  14.16.1
+       engines.npm (package.json):   6.14.12
+
+       Resolving node version 14.16.1...
+       Downloading and installing node 14.16.1...
+       npm 6.14.12 already installed with node
+
+-----> Installing dependencies
+       Installing node modules
+
+       > fsevents@1.2.13 install /tmp/build_8088dee8/node_modules/webpack-dev-server/node_modules/fsevents
+       > node install.js
+
+
+       Skipping 'fsevents' build as platform linux is not supported
+
+       > core-js@3.15.1 postinstall /tmp/build_8088dee8/node_modules/@angular-devkit/build-angular/node_modules/core-js
+       > node -e "try{require('./postinstall')}catch(e){}"
+
+
+       > nodemon@2.0.12 postinstall /tmp/build_8088dee8/node_modules/nodemon
+       > node bin/postinstall || exit 0
+
+       Love nodemon? You can now support the project via the open collective:
+        > https://opencollective.com/nodemon/donate
+
+
+       > core-js@2.6.12 postinstall /tmp/build_8088dee8/node_modules/core-js
+       > node -e "try{require('./postinstall')}catch(e){}"
+
+
+       > @angular/cli@12.1.2 postinstall /tmp/build_8088dee8/node_modules/@angular/cli
+       > node ./bin/postinstall/script.js
+
+       added 1973 packages in 35.405s
+
+-----> Build
+       Running build
+
+       > online-judge-mean@1.0.0 build /tmp/build_8088dee8
+       > ng build --configuration production
+
+- Generating browser application bundles (phase: setup)...
+Compiling @angular/core : es2015 as esm2015
+Compiling @angular/common : es2015 as esm2015
+Compiling @angular/platform-browser : es2015 as esm2015
+Compiling @angular/platform-browser-dynamic : es2015 as esm2015
+Compiling @angular/router : es2015 as esm2015
+Compiling ngx-bootstrap/utils : es2015 as esm2015
+Compiling ngx-bootstrap/alert : es2015 as esm2015
+Compiling ngx-bootstrap/positioning : es2015 as esm2015
+Compiling ngx-bootstrap/component-loader : es2015 as esm2015
+Compiling ngx-bootstrap/modal : es2015 as esm2015
+Compiling @angular/common/http : es2015 as esm2015
+Compiling ngx-progressbar : es2015 as esm2015
+Compiling ngx-progressbar/http : es2015 as esm2015
+Compiling @angular/forms : es2015 as esm2015
+Compiling ngx-quill : es2015 as esm2015
+✔ Browser application bundle generation complete.
+- Generating ES5 bundles for differential loading...
+✔ Browser application bundle generation complete.
+✔ ES5 bundle generation complete.
+- Copying assets...
+✔ Copying assets complete.
+- Generating index html...
+✔ Index html generation complete.
+
+       Initial Chunk Files                      | Names                |      Size
+       main-es5.90ba2f4cb80e5b7dd7ab.js         | main                 | 601.20 kB
+       main-es2015.90ba2f4cb80e5b7dd7ab.js      | main                 | 516.32 kB
+       scripts.21f0c1bd71e842514f91.js          | scripts              | 460.58 kB
+       styles.c5cddc00a67a7685f4e0.css          | styles               | 201.41 kB
+       polyfills-es5.848e1e43cddfc69fa565.js    | polyfills-es5        | 132.31 kB
+       polyfills-es2015.656bc0fb7423ef9ac49a.js | polyfills            |  36.13 kB
+       runtime-es2015.fa0d675be33153add91d.js   | runtime              |   3.50 kB
+       runtime-es5.fa0d675be33153add91d.js      | runtime              |   3.50 kB
+
+       | Initial ES5 Total    |   1.37 MB
+       | Initial ES2015 Total |   1.19 MB
+
+       Lazy Chunk Files                         | Names                |      Size
+       161-es5.6c645a8d348aedb1bc37.js          | -                    | 208.98 kB
+       161-es2015.6c645a8d348aedb1bc37.js       | -                    | 208.98 kB
+
+       Build at: 2021-07-18T07:54:32.380Z - Hash: f951e994350c45380bd0 - Time: 159327ms
+Warning: /tmp/build_8088dee8/src/app/interceptor/error.interceptor.ts depends on 'rxjs/add/operator/catch'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+Warning: /tmp/build_8088dee8/src/app/interceptor/error.interceptor.ts depends on 'rxjs/add/operator/do'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+Warning: /tmp/build_8088dee8/src/app/interceptor/error.interceptor.ts depends on 'rxjs/observable/throw'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+Warning: /tmp/build_8088dee8/src/app/interceptor/timeout.interceptor.ts depends on 'rxjs/add/operator/timeout'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+Warning: /tmp/build_8088dee8/src/app/services/alert.service.ts depends on 'rxjs/Subject'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+Warning: /tmp/build_8088dee8/src/app/services/user.service.ts depends on 'rxjs/add/operator/map'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+
+-----> Caching build
+       - node_modules
+
+-----> Pruning devDependencies
+       removed 1269 packages and audited 705 packages in 17.322s
+
+       44 packages are looking for funding
+         run `npm fund` for details
+
+       found 1 moderate severity vulnerability
+         run `npm audit fix` to fix them, or `npm audit` for details
+
+-----> Build succeeded!
+-----> Discovering process types
+       Procfile declares types -> web
+-----> Compressing...
+       Done: 108.9M
+-----> Launching...
+       Released v5
+       https://online-judge-api.herokuapp.com/ deployed to Heroku
+```
+### Client
+Create app `online-judge-mean` for client website.
+```sh
+cd online-judge-mean
+heroku login
+heroku create -a online-judge-mean
+heroku buildpacks:add -a online-judge-mean heroku-community/multi-procfile
+heroku buildpacks:add -a online-judge-mean heroku/nodejs
+heroku config:set -a online-judge-mean PROCFILE=Procfile
+git push https://git.heroku.com/online-judge-mean.git HEAD:master
+```
+Output.
+```sh
+-----> Building on the Heroku-20 stack
+-----> Using buildpacks:
+       1. heroku-community/multi-procfile
+       2. heroku/nodejs
+-----> Multi-procfile app detected
+cp: '/tmp/build_d0cd865f/Procfile' and '/tmp/build_d0cd865f/Procfile' are the same file
+       Copied Procfile as Procfile successfully
+-----> Node.js app detected
+
+-----> Creating runtime environment
+
+       NPM_CONFIG_LOGLEVEL=error
+       NODE_VERBOSE=false
+       NODE_ENV=production
+       NODE_MODULES_CACHE=true
+
+-----> Installing binaries
+       engines.node (package.json):  14.16.1
+       engines.npm (package.json):   6.14.12
+
+       Resolving node version 14.16.1...
+       Downloading and installing node 14.16.1...
+       npm 6.14.12 already installed with node
+
+-----> Installing dependencies
+       Installing node modules
+
+       > fsevents@1.2.13 install /tmp/build_d0cd865f/node_modules/webpack-dev-server/node_modules/fsevents
+       > node install.js
+
+
+       Skipping 'fsevents' build as platform linux is not supported
+
+       > core-js@3.15.1 postinstall /tmp/build_d0cd865f/node_modules/@angular-devkit/build-angular/node_modules/core-js
+       > node -e "try{require('./postinstall')}catch(e){}"
+
+
+       > nodemon@2.0.12 postinstall /tmp/build_d0cd865f/node_modules/nodemon
+       > node bin/postinstall || exit 0
+
+       Love nodemon? You can now support the project via the open collective:
+        > https://opencollective.com/nodemon/donate
+
+
+       > core-js@2.6.12 postinstall /tmp/build_d0cd865f/node_modules/core-js
+       > node -e "try{require('./postinstall')}catch(e){}"
+
+
+       > @angular/cli@12.1.2 postinstall /tmp/build_d0cd865f/node_modules/@angular/cli
+       > node ./bin/postinstall/script.js
+
+       added 1973 packages in 36.795s
+
+-----> Build
+       Running build
+
+       > online-judge-mean@1.0.0 build /tmp/build_d0cd865f
+       > ng build --configuration production
+
+- Generating browser application bundles (phase: setup)...
+Compiling @angular/core : es2015 as esm2015
+Compiling @angular/common : es2015 as esm2015
+Compiling @angular/platform-browser : es2015 as esm2015
+Compiling @angular/platform-browser-dynamic : es2015 as esm2015
+Compiling @angular/router : es2015 as esm2015
+Compiling ngx-bootstrap/utils : es2015 as esm2015
+Compiling ngx-bootstrap/alert : es2015 as esm2015
+Compiling ngx-bootstrap/positioning : es2015 as esm2015
+Compiling ngx-bootstrap/component-loader : es2015 as esm2015
+Compiling ngx-bootstrap/modal : es2015 as esm2015
+Compiling @angular/common/http : es2015 as esm2015
+Compiling ngx-progressbar : es2015 as esm2015
+Compiling ngx-progressbar/http : es2015 as esm2015
+Compiling @angular/forms : es2015 as esm2015
+Compiling ngx-quill : es2015 as esm2015
+✔ Browser application bundle generation complete.
+- Generating ES5 bundles for differential loading...
+✔ Browser application bundle generation complete.
+✔ ES5 bundle generation complete.
+- Copying assets...
+✔ Copying assets complete.
+- Generating index html...
+✔ Index html generation complete.
+
+       Initial Chunk Files                      | Names                |      Size
+       main-es5.90ba2f4cb80e5b7dd7ab.js         | main                 | 601.20 kB
+       main-es2015.90ba2f4cb80e5b7dd7ab.js      | main                 | 516.32 kB
+       scripts.21f0c1bd71e842514f91.js          | scripts              | 460.58 kB
+       styles.c5cddc00a67a7685f4e0.css          | styles               | 201.41 kB
+       polyfills-es5.848e1e43cddfc69fa565.js    | polyfills-es5        | 132.31 kB
+       polyfills-es2015.656bc0fb7423ef9ac49a.js | polyfills            |  36.13 kB
+       runtime-es2015.fa0d675be33153add91d.js   | runtime              |   3.50 kB
+Warning: /tmp/build_d0cd865f/src/app/interceptor/error.interceptor.ts depends on 'rxjs/add/operator/catch'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+Warning: /tmp/build_d0cd865f/src/app/interceptor/error.interceptor.ts depends on 'rxjs/add/operator/do'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+Warning: /tmp/build_d0cd865f/src/app/interceptor/error.interceptor.ts depends on 'rxjs/observable/throw'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+Warning: /tmp/build_d0cd865f/src/app/interceptor/timeout.interceptor.ts depends on 'rxjs/add/operator/timeout'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+Warning: /tmp/build_d0cd865f/src/app/services/alert.service.ts depends on 'rxjs/Subject'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+Warning: /tmp/build_d0cd865f/src/app/services/user.service.ts depends on 'rxjs/add/operator/map'. CommonJS or AMD dependencies can cause optimization bailouts.
+For more info see: https://angular.io/guide/build#configuring-commonjs-dependencies
+       runtime-es5.fa0d675be33153add91d.js      | runtime              |   3.50 kB
+
+       | Initial ES5 Total    |   1.37 MB
+       | Initial ES2015 Total |   1.19 MB
+
+       Lazy Chunk Files                         | Names                |      Size
+       161-es5.6c645a8d348aedb1bc37.js          | -                    | 208.98 kB
+       161-es2015.6c645a8d348aedb1bc37.js       | -                    | 208.98 kB
+
+       Build at: 2021-07-18T07:59:51.947Z - Hash: 147819932479913ef35d - Time: 169249ms
+
+-----> Caching build
+       - node_modules
+
+-----> Pruning devDependencies
+       removed 1269 packages and audited 705 packages in 17.991s
+
+       44 packages are looking for funding
+         run `npm fund` for details
+
+       found 1 moderate severity vulnerability
+         run `npm audit fix` to fix them, or `npm audit` for details
+
+-----> Build succeeded!
+-----> Discovering process types
+       Procfile declares types -> web
+-----> Compressing...
+       Done: 109M
+-----> Launching...
+       Released v4
+       https://online-judge-mean.herokuapp.com/ deployed to Heroku
+```
+## Update
 Server.
 ```sh
 cd online-judge-mean
@@ -98,7 +396,23 @@ git commit --allow-empty -m "Upgrading to heroku-20"
 git push heroku master
 ```
 
+## Troubleshooting
+Check the buildpack.
+```sh
+$ heroku git:remote -a online-judge-api
+$ heroku buildpacks
+=== online-judge-api Buildpack URLs
+1. heroku-community/multi-procfile
+2. heroku/nodejs
+```
+Use the default `nodejs` buildpack.
+```sh
+heroku buildpacks:set heroku/nodejs
+```
+
 * [How to deploy multiple apps in a monorepo with Heroku](https://medium.com/inato/how-to-setup-heroku-with-yarn-workspaces-d8eac0db0256)
+* [Heroku Multi Procfile buildpack](https://elements.heroku.com/buildpacks/heroku/heroku-buildpack-multi-procfile)
+* [Buildpacks](https://devcenter.heroku.com/articles/buildpacks)
 
 # Portfolio
 Read portfolio [Online Judge(MEAN)](https://jojozhuang.github.io/project/online-judge-mean) to learn the main functions of this MEAN stack app.
