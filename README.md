@@ -98,6 +98,7 @@ git commit --allow-empty -m "Upgrading to heroku-20"
 git push heroku master
 ```
 
+* [How to deploy multiple apps in a monorepo with Heroku](https://medium.com/inato/how-to-setup-heroku-with-yarn-workspaces-d8eac0db0256)
 
 # Portfolio
 Read portfolio [Online Judge(MEAN)](https://jojozhuang.github.io/project/online-judge-mean) to learn the main functions of this MEAN stack app.

@@ -28,7 +28,6 @@
     "prod": "npm run client-prod",
     "build-nas": "ng build --configuration nas",
     "start-nas": "ng serve --configuration nas",
-    "heroku-postbuild": "./heroku.build.sh",
     "fronted": "BUILD_ENV=frontend npm run heroku-postbuild",
     "backend": "BUILD_ENV=backend npm run heroku-postbuild"
   },
