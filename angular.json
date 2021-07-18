@@ -23,7 +23,8 @@
                 "output": "assets/monaco-editor"
               },
               "src/assets",
-              "src/favicon.ico"
+              "src/favicon.ico",
+              "src/_redirects"
             ],
             "styles": [
               "./node_modules/quill/dist/quill.core.css",

@@ -51,15 +51,17 @@ module.exports = {
   saveFile(file, content, callback) {
     // create parent directories if they doesn't exist.
     fs.mkdir(getDirName(file), { recursive: true }, err => {
-      if (err) return callback(err);
+      if (err) {
+        callback(err);
+      } else {
+        return fs.writeFile(file, content, err2 => {
+          if (err2) {
+            callback(err);
+          }
 
-      return fs.writeFile(file, content, err2 => {
-        if (err2) {
-          throw err2;
-        }
-
-        callback();
-      });
+          callback();
+        });
+      }
     });
   },
 
