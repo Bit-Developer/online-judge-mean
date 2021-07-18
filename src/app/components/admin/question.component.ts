@@ -1,12 +1,61 @@
 import { Component, ViewChild, Input, OnInit } from "@angular/core";
 import { Validators } from "@angular/forms";
 import { BaseComponent } from "../base.component";
+import { AngularEditorConfig } from "@kolkov/angular-editor";
 
 @Component({
   selector: "app-question",
   templateUrl: "./question.component.html"
 })
 export class QuestionComponent extends BaseComponent {
+  // https://github.com/kolkov/angular-editor
+  editorConfig: AngularEditorConfig = {
+    editable: true,
+    spellcheck: true,
+    height: 'auto',
+    minHeight: '0',
+    maxHeight: 'auto',
+    width: 'auto',
+    minWidth: '0',
+    translate: 'yes',
+    enableToolbar: true,
+    showToolbar: true,
+    placeholder: 'Enter text here...',
+    defaultParagraphSeparator: '',
+    defaultFontName: '',
+    defaultFontSize: '',
+    fonts: [
+      {class: 'arial', name: 'Arial'},
+      {class: 'times-new-roman', name: 'Times New Roman'},
+      {class: 'calibri', name: 'Calibri'},
+      {class: 'comic-sans-ms', name: 'Comic Sans MS'}
+    ],
+    customClasses: [
+    {
+      name: 'quote',
+      class: 'quote',
+    },
+    {
+      name: 'redText',
+      class: 'redText'
+    },
+    {
+      name: 'titleText',
+      class: 'titleText',
+      tag: 'h1',
+    },
+  ],
+  sanitize: true,
+  toolbarPosition: 'top',
+  toolbarHiddenButtons: [
+
+  ]
+};
+
+  modules: {
+    toolbar: ['bold', 'italic', 'underline', 'link'],
+  }
+
   _id;
 
   public selectedValue;

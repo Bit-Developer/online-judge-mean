@@ -10,7 +10,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { NgProgressModule } from "ngx-progressbar";
 import { ɵa } from 'ngx-progressbar/http';
 import { MonacoEditorModule } from "ngx-monaco-editor";
-import { QuillModule } from 'ngx-quill'
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 // components
 import {
@@ -112,7 +112,7 @@ import { appRoutes } from "./app.route";
     MonacoEditorModule.forRoot(),
     FormsModule,
     HttpClientModule,
-    QuillModule.forRoot(),
+    AngularEditorModule,
     NgProgressModule
   ],
   providers: [

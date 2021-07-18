@@ -57,22 +57,3 @@ html {
 ._nghost-c4 {
   height: 600px;
 }
-
-
-pre.ql-syntax {
-  background-color: #f5f5f5 !important;
-  color: inherit !important;
-  display: block;
-  padding: 9.5px;
-  margin: 0 0 10px;
-  font-size: 13px;
-  line-height: 1.42857143;
-  word-break: break-all;
-  word-wrap: break-word;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.ql-editor {
-  font-size: 14px !important;
-}

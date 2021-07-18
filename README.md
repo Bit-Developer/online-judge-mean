@@ -437,3 +437,14 @@ docker run --name online-judge-server -p 9021:80 -d jojozhuang/online-judge-serv
 docker run --name online-judge-web -p 9020:80 -d jojozhuang/online-judge-web
 ```
 Access http://192.168.0.2:9020/ in browser.
+
+# Rich text editor
+To show the math formula correctly in description or solution, need to install `katex` and add its css and js to `angular.js`.
+```java
+  "styles": [
+    "./node_modules/katex/dist/katex.min.css",
+  ],
+  "scripts": [
+    "./node_modules/katex/dist/katex.min.js"
+  ],
+```
