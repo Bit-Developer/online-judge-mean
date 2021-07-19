@@ -77,7 +77,7 @@ Follow tutorial [Online Judge - Deploying Full Stack Angular App to Heroku](http
 
 Follow tutorial [Online Judge - Continuously Deploy MEAN Stack App to Heroku and Netlify with Travis-CI](https://jojozhuang.github.io/tutorial/online-judge-continuously-deploy-mean-stack-app-to-heroku-and-netlify-with-travis-ci) to continuously deploy this Full Stack app to Heroku(RESTful API) and Netlify(Frontend Angular).
 
-## Steps
+## Steps(Updated on July 17, 2021)
 Manually deploy the same git repo to two apps in heroku. Use `Multi Procfile buildpack` to deploy multiple apps in a monorepo.
 
 ### Server
