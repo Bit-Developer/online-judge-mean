@@ -409,6 +409,7 @@ Use the default `nodejs` buildpack.
 ```sh
 heroku buildpacks:set heroku/nodejs
 ```
+Don't select "Wait for CI to pass before deploy" as Travis-CI is not configured for this GitHub repo.
 
 References:
 * [How to deploy multiple apps in a monorepo with Heroku](https://medium.com/inato/how-to-setup-heroku-with-yarn-workspaces-d8eac0db0256)
