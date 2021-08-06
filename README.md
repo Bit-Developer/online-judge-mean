@@ -396,17 +396,22 @@ git commit --allow-empty -m "Upgrading to heroku-20"
 git push heroku master
 ```
 
-## Deploy frontend as static site(Faked PHP App)
-1. Create `composer.json` in root directory. In composer.json, add the following line. Notice that a PHP app on Heroku requires a 'composer.json' at the root of the directory structure, or an 'index.php' for legacy behavior.
+## How to deploy Angular app to Heroku and serve it as static site(Fake PHP App)
+## 1. composer.json
+A PHP app on Heroku requires a `composer.json` at the root of the directory structure, or an `index.php` for legacy behavior.
+Create `composer.json` in Angular root directory. In composer.json, add the following line.
 ```sh
 {}
 ```
-2. Create `index.php` in `src` folder. In index.php, add the following line:
+## 2. index.php
+Create `index.php` in `src` folder. In index.php, add the following line:
 ```sh
 <?php include_once("home.html"); ?>
 ```
-3. Create `src/home.html` by copying file `src/index.html`.
-4. During build, we need to copy `home.html` and `index.php` to output folder, eg `dist`. Edit `angular.json`, modify `build/options/index` and add `index.php` to `assets`.
+## 3. home.html
+Create `src/home.html` by copying file `src/index.html`.
+## 4. Copy home.html and index.php to dist folder
+Edit `angular.json`, modify `build/options/index` and add `index.php` to `assets`. Thus, `home.html` and `index.php` will be copied into the output folder `dist` during build.
 ```javascript
   "build": {
     "builder": "@angular-devkit/build-angular:browser",
@@ -419,13 +424,14 @@ git push heroku master
         "src/index.php"
       ],
 ```
-5. Edit `Procfile` as follows. This file directs heroku to start apache server to serve folder `dist` as web application.
+## 5. Procfile
+A `Procfile` is a text file in the root directory of your application that defines process types and explicitly declares what command should be executed to start your app. Create `Procfile` as follows. It will direct heroku to start apache server to serve folder `dist`.
 ```sh
 web: vendor/bin/heroku-php-apache2 dist/
 ```
-6. Create heroku app `online-judge-mean`
-We need to add nodejs buildpack and php buildpack. The `nodejs` buildpack will compile the Angular app and the `php` buildpack will serve the output static files as php app.
-### 6.1 Command line
+## 6. Create heroku app and add buildpack
+You can do it through heroku CLI or its website.
+### 6.1 Heroku CLI
 ```sh
 cd online-judge-mean
 heroku login
@@ -433,12 +439,74 @@ heroku create -a online-judge-mean
 heroku buildpacks:add -a online-judge-mean heroku/nodejs
 heroku buildpacks:add -a online-judge-mean heroku/php
 ```
-### 6.2 UI
-You can also do it through heorku website. First, create web app for `online-judge-mean` and select the github repo. Then, add buldpack through UI. Go to `online-judge-mean`, settings->Buildpacks->Add buildpack. Add `heroku/nodejs` first, the `heroku/php`.
-7. Deploy the site, it should be built and launched successfully.
-8. References
+The above commands creates a heroku app named `online-judge-mean`. And adds `nodejs` buildpack and `php` buildpack. The `nodejs` buildpack will compile the Angular app and the `php` buildpack will serve the output static files as php site.
+### 6.2 Heroku Dashboard
+You can also create the app through heorku website. Go to https://dashboard.heroku.com/apps, click `Create new app`, provide the app name. Go to settings->Buildpacks->Add buildpack, `heroku/nodejs` first, `heroku/php` second.
+## 7. Deploy site
+Switch to `Deploy` tab and connect it to your GitHub repo. Then, click `Deploy Branch` button. Heroku will start the build and launch your site successfully.
+## 8. Example logs
+```sh
+-----> Building on the Heroku-20 stack
+-----> Using buildpacks:
+       1. heroku/nodejs
+       2. heroku/php
+-----> Node.js app detected
+
+-----> Creating runtime environment
+
+       NPM_CONFIG_LOGLEVEL=error
+       NODE_VERBOSE=false
+       NODE_ENV=production
+       NODE_MODULES_CACHE=true
+
+-----> Installing binaries
+       engines.node (package.json):  14.16.1
+       engines.npm (package.json):   6.14.12
+
+       Resolving node version 14.16.1...
+       Downloading and installing node 14.16.1...
+       npm 6.14.12 already installed with node
+
+-----> Installing dependencies
+       Installing node modules
+       ...
+-----> Build
+       Running build
+
+       > online-judge-mean@1.0.0 build /tmp/build_2955a863
+       > ng build --configuration production
+
+       ...
+
+-----> Caching build
+       - node_modules
+       ...
+
+-----> Build succeeded!
+-----> PHP app detected
+-----> Bootstrapping...
+-----> Installing platform packages...
+       NOTICE: No runtime required in composer.lock; using PHP ^7.3.0 | ^8.0.0
+       - php (8.0.9)
+       - composer (1.10.22)
+       - apache (2.4.48)
+       - nginx (1.20.1)
+-----> Installing dependencies...
+       Composer version 1.10.22 2021-04-27 13:10:45
+-----> Preparing runtime environment...
+-----> Checking for additional extensions to install...
+-----> Discovering process types
+       Procfile declares types -> web
+-----> Compressing...
+       Done: 123.2M
+-----> Launching...
+       Released v3
+       https://online-judge-mean.herokuapp.com/ deployed to Heroku
+```
+## 9. References
 * [deploy-static-site-heroku.md](https://gist.github.com/wh1tney/2ad13aa5fbdd83f6a489)
 * [Deploying PHP Apps on Heroku](https://devcenter.heroku.com/articles/deploying-php)
+* https://gist.github.com/jojozhuang/884c24e79bf330ac521a9978717ac088
 
 ## Troubleshooting
 Check the buildpack.
