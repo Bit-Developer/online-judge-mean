@@ -396,6 +396,46 @@ git commit --allow-empty -m "Upgrading to heroku-20"
 git push heroku master
 ```
 
+## Deploy frontend as static site(Faked PHP App)
+1. Create `index.php` in `src` folder. In index.php, add the following line:
+```sh
+<?php include_once("home.html"); ?>
+```
+2. Create `src/home.html` by copying file `src/index.html`.
+3. During build, we need to copy `home.html` and `index.php` to output folder, eg `dist`. Edit `angular.json`, modify `build/options/index` and add `index.php` to `assets`.
+```javascript
+  "build": {
+    "builder": "@angular-devkit/build-angular:browser",
+    "options": {
+      "outputPath": "dist",
+      "index": "src/home.html",
+      ...
+      "assets": [
+        ...
+        "src/index.php"
+      ],
+```
+4. Edit `Procfile` as follows. This file directs heroku to start apache server to serve folder `dist` as web application.
+```sh
+web: vendor/bin/heroku-php-apache2 dist/
+```
+5. Create heroku app `online-judge-mean`
+We need to add nodejs buildpack and php buildpack. The `nodejs` buildpack will compile the Angular app and the `php` buildpack will serve the output static files as php app.
+### 5.1 Command line
+```sh
+cd online-judge-mean
+heroku login
+heroku create -a online-judge-mean
+heroku buildpacks:add -a online-judge-mean heroku/nodejs
+heroku buildpacks:add -a online-judge-mean heroku/php
+```
+### 5.2 UI
+You can also do it through heorku website. First, create web app for `online-judge-mean` and select the github repo. Then, add buldpack through UI. Go to `online-judge-mean`, settings->Buildpacks->Add buildpack. Add `heroku/nodejs` first, the `heroku/php`.
+6. Deploy the site, it should be built and launched successfully.
+7. References
+* [deploy-static-site-heroku.md](https://gist.github.com/wh1tney/2ad13aa5fbdd83f6a489)
+* [Deploying PHP Apps on Heroku](https://devcenter.heroku.com/articles/deploying-php)
+
 ## Troubleshooting
 Check the buildpack.
 ```sh
