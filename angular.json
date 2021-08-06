@@ -24,7 +24,8 @@
               },
               "src/assets",
               "src/favicon.ico",
-              "src/_redirects"
+              "src/_redirects",
+              "src/index.php"
             ],
             "styles": [
               "./node_modules/katex/dist/katex.min.css",
